@@ -1,0 +1,53 @@
+
+{% load render_partial %}
+
+<style>
+
+
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head style="background-color: black;">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+
+	{% render_partial 'home_module.views.render_partial_header' %}
+
+
+	{% include 'Shared/References/Header_References.html' %}
+
+
+
+{% block header_references %}
+
+{% endblock %}
+
+
+
+	{% block content %}
+
+	{% endblock %}
+	
+	
+</body>
+
+	
+	{% render_partial 'home_module.views.render_partial_footer' %}
+	
+  
+	{% include 'Shared/References/Footer_References.html' %}
+
+	{% block footer_references %}
+	{% endblock %}
+
+
+</html>
+
+
+
+
+
+	

@@ -1,0 +1,46 @@
+
+{% extends 'Shared/Main_Layout.html' %}
+
+{% load static %}
+
+{% load poll_extras %}
+
+{% block content %}
+
+    <script>
+        
+    //     function removeOrderDetail(detailId) {
+    //         $.get('/User/remove-basket-detail?detail_id=' + detailId).then(res => {
+    //             $('#order-detail-content').html(res.body)
+    //     });
+    // }
+
+
+    function removeOrderDetail(detailId) {
+    $.get('/User/remove-basket-detail?detail_id=' + detailId).then(res => {
+        if (res.status === 'success') {
+            $('#order-detail-content').html(res.body);
+        }
+    });
+}
+
+    </script>
+
+    <div id="order-detail-content">
+        {% include 'User_Basket_Content.html' %}
+
+
+        
+    </div>
+
+
+
+    
+
+
+
+
+
+
+
+{% endblock %}

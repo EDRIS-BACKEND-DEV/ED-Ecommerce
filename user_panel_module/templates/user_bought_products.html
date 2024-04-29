@@ -1,0 +1,49 @@
+{% extends 'Shared/Main_Layout.html' %}
+{% load render_partial %}
+{% load thumbnail %}
+
+{% load poll_extras %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">   
+        <div class="col-md-4">     
+        {% if current_user.avatar %}
+
+        {% thumbnail current_user.avatar "862x398" quality=100 crop='center' as im %}
+        <a class="thumbnail">
+            <img src="{{ im.url }}" alt="...">
+        </a>
+        {% endthumbnail %}
+        
+        {% endif %}
+        {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
+        </div>
+        <div class="col-md-8">
+            <table class="table table-responsive table-hover table-striped">
+                <tr>
+                    <th class="text-right">شناسه</th>
+                    <th class="text-right">تاریخ تایید فاکتور</th>
+                    <th class="text-right">قیمت نهایی خرید</th>
+                </tr>
+
+                {% for order in object_list %}
+
+                <td class="text-right"> {{order.id}} </td>
+                <td class="text-right"> {{order.payment_date | show_jalali_date}} </td>
+                <td class="text-right"> {{ order.calculate_total_price | three_digits_currency }} </td>
+                
+                
+                <td>
+                    <a href="{% url 'user_shopping_detail_page' order_id=order.id %}"
+                    class="btn btn-success">جزییات</a>
+                </td>
+                
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

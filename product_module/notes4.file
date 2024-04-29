@@ -1,0 +1,4987 @@
+
+
+
+Every programming language has its own feature, for example django is 
+good for AI or Application for mobile or Android or ios or Web.
+
+What is a framework?
+
+a framework is like a template, lets say u want to create e ecommerce
+website. so u need a design a logo and some layouts and colors and bla bla bla.   
+
+the thing is u dont create all of that from zero, or forexample u want to 
+create a login form, u dont create all the things from zero and then use it.
+
+what we do instead is we import or use some modules that lets us use
+that functionality by just calling it name and then we can use it in our own
+function or code.
+
+this way ur project will go much faster and u can think more on ur ideas on project then how to implement all the things, thats Django.
+
+
+Lesson 3
+  Installing Django
+     to check that if we have python in our system, write this command..
+    python
+
+    and to check if Django is installed, write django-admin.
+
+
+Lesson 4
+  Creating our project
+
+in this lesson we talk about things that i already knew hahaa 
+but one thing that was quite new and really important for me to know is manage.py in django
+
+manage.py is the most main important file in django, its like the heart of our project where it helps us to run our database or run our servers.
+
+but we never change something inside manage.py file, when we want smt
+from our manage.py we use terminal command line
+
+asgi.py and wsgi.py is a file in django that is for deploying the project
+
+
+Lesson 5 
+   Localhost and DNS
+
+in our django project folder, we have a file called db.sqlite3 which is a verion of Sqlite but its more smaller and cleaner, 
+
+but they usually do not use that db.sqlite3 in the project but django has still provided this type of light database so that we can easliy test our project.
+
+so big projects or company do not use db.sqlite3 because its very light and cannot carry that much databases or heavy codes.
+
+
+Lesson 6
+ Review Django modules
+
+
+
+
+
+Lesson 7
+  Urls & views
+
+ urls is A part of the application that you can access the addresses that you or the web developer have considered.
+
+Views
+There are functions or classes that whenever enter an address every time
+Django will automatically go and execute the logic inside the implemented function or class for you.
+
+views purpose and duty is that to handle what the user searches and returns that request to the user (template, data and all that)
+
+
+in the urls we have smt like
+
+  127.800/products/django
+
+  each of those url names (products and django) we call the segments,
+  so products are segments 1
+  and django is segment 2
+
+
+Lesson 8
+ POST & GET
+   When u search something in a website and submit it, it directly will show it    
+   in ur urls, that is GET
+ 
+       but when u for example submit a form or login in a website, it wont
+       be shown in ur urls, that is POST
+
+In GET method, values are visible in the URL while in POST method, values are NOT visible in the URL
+
+  
+
+
+Lesson 9 
+ dynamic Url Route 
+  dont forget to search more about it
+
+how to create dynamic URL,
+
+lets say for example u want the user to write what day it is, instead of writing
+so many functions for each weekdays mondays tuesday and bla bla bla.
+
+instead we create a dynamic url <> which will return anything what the user will write. it is very much used in ID of products too.
+
+so lets begin step by step how to create one
+
+Without dynamic routing, navigating web pages would be difficult. You would have to type the full path of every page you visit on the browser. What a terrible user experience.
+
+ur first create a function like this...
+
+we first create a function whatever name it is
+
+def dynamic_day(request, day):
+      return HttpResponse(day)
+
+and in our urls we write...
+    path('<day>', dynamic_day)
+
+   boom khalas there we go 
+
+in django or at ur website, when u are in a page and behind the network u see numbers which is 200, it means that the page works well without any bug or antything.
+
+but if its something else except 200, then figure it out why its not 200.
+
+when u get 300 it means redirect. it means that ur request has successfully redirected to another page
+
+Lesson 10
+    or if it is a string or an int                   
+h
+
+
+
+
+
+
+
+Lesson 10
+ Checking the type of parameter sent to url
+
+ in the urls, when we give the url a parameter.
+
+ we can give it a specific type, for example Int or str
+
+ for example we want the user to write numbers in the url, 
+ but sometimes we want the user to write strings or names in the url.
+
+ so thats why we give it a specific parameter type.
+
+ and we do it like this...
+
+        path('<int:day>', dynamic_day_int),
+        path('<str:day>', dynamic_day)
+
+
+
+Lesson 11
+
+
+  when u include an url and change the url name this is called ur prefix
+
+  reverse() function
+    what the reverse function does is that the address that u gave to ur url, it will take
+    that address and return it for u, in another words it will reverse it for u.
+
+    but it has some more features.
+
+
+Lesson 12
+   showing a list with html codes in view httpresponse
+
+   in this lesson the teacher show us one way of writing html codes inside our function,
+
+    which tbh was really disgusting, but in the next lesson we will dive into the real 
+    template shit.
+
+
+Lesson 13
+   template
+
+   in this lesson we created a folder with an html file and showed it to the browser,
+   the next lesson we will go trhough render.
+
+
+Lesson 14
+  Render
+
+  its good to know that when u create some html files, espeically in big projects its very 
+  important to keep the html files in a unique folder,
+
+  because if we dont do that then for example if we want to render some html files template. and maybe we have different html files with the same name, that will occur an error.
+         Django will be confused whcih of the files should he returned.
+
+  so its important to store each speficic file in a specific own folder.
+
+  but its not obligatory.
+
+
+  what is a render_to_string()?
+
+  render_to_string() loads a template like get_template() and calls its render() method 
+  immediately
+
+  what is the difference between render and render_to_string?
+   ...
+
+
+
+  when u write in ur html file something for example names and titles and blogs with 
+  paragraphs and show it to the browser, that is static website, not a dynamic
+
+  but to make it dynamic we use something called context isnide our render function.
+
+  we use context and it has to be a dictionary, and with those values inside our context
+  we have datas and with those datas we can use them in our html file.
+
+  to make our website dynamic we use context and to use context inside our html file we use
+  DTL, Django Template Language
+
+  what is Django template Language?
+
+  its a powerful and flexible language that allows you to create dynamic web pages using HTML templates
+
+  what is the purpose of Django Template Language?
+  
+  its for to handle datas to be used dynamically, but thats one of the features of
+   Django Template Language, such as for loop and if or else.
+
+    and we use it like this inside our html file for example if we want to use any data...
+
+    {{ example_data }}
+
+
+Lesson 15
+  Django Template Filter
+
+
+ in ur website, there will be moments where u want to for example capitilize or upper 
+ or lower a specific word or sentence.
+
+ Well ur at the right place, because Django has provided a feature for that but inside ur
+ html file, and its called Django template Filter.
+
+ there are lots of filters in django but keep in mind to always look into them and search
+ about them.
+
+
+  seems like i dont have internet, but my internet in sha allah got connected,
+  go to your extensions in visual studio code and donwload that snippet beautful thing
+  and copy that line of code and paste it isndie ur settings.json file below.
+
+  what this will do is it will make ur intellicence so much better in django so that u can see what code to write.
+
+
+Lesson 16
+  Template Tags
+
+  in this lesson we learned about tags, python codes that we can use in our html file
+  which we are already familiar with.
+
+
+
+Lesson 17
+  Template Url
+
+  in this lesson we learned a tag that we can use for our url like this...
+
+  {% url '' %}
+
+  in companies when they do a big project they always name their urls,
+   but its not obligatory.
+
+  
+ 
+Lesson 18 
+  Django Template if tag
+
+  in this lesson we learned about django template if tag which i already know the rules
+  and the concepts so it was not that hard.
+
+
+Lesson 19 
+ Extends Django Template
+
+   now we already are familiar with this beautiful concept, which really helps us so much
+   clean better code
+
+   we have a main html layout where we write code that contains header and footer
+   and then we extend that file from another html files, instead of always writing the
+   same header and footer again and again.
+
+   but what should we name that specific base file?
+    
+    Mr Ordokhani mentioned that among Django developer, when they have a base file. 
+      they name it 'base.html' or 'main.html' or 'master.html', or 'layout.html' or '_MainLayout.html'
+        
+
+    Dont forget to inside the base.html or whatever u name it.
+       the title tag should be dynamic
+
+       because we want different title names for each file
+
+
+
+Lesson 20
+   Django Include Tag
+
+   the include tag what it does is whenevr u use include tag it will include or bring 
+   a html file and put it where u writed the include tag  
+
+   include tag loads a template and renders it with the current context.
+
+   u can also include data.
+
+    {% include 'challenges/includes/Header.html' with active_page='Days List' %}
+
+
+Lesson 21
+   Not Found(404)
+
+   when u want to raise Http404 Django will automatically go to the templates and find
+   a file with the name 404 to return it in ur website.
+
+     so remember if u want to have ur own 404 page with ur own template. 
+         u have to name that html file to 404.html
+
+         u can even go the some settings and change the http404 name so that django
+         goes and look for the file that u want to look for, for example error.html
+
+         but like Mr Ordokhani said, its better to not change any settings for 404.
+
+
+
+Lesson 22
+   Using static files (Css, js, etc. files) in the project
+
+    When we create a project or a website with django, there or two choices.
+
+    one of them is that we use a template, and with that reason we dont need to be worried
+    about the css and js sliders images all that files and etc.
+
+    they all will be in a folder providing for us the features whenever we need it.
+
+    
+  but there is another too, what if u dont want to use a template.
+  u want to use ur own css and js and all customization shit.
+
+    u cant just take those css js and etc folders to use it on ur own project, 
+           that shit is jsut messed up.
+
+      instead what we do is that we create a static folder
+
+
+
+Lesson 23
+   Static file settings in global mode
+
+
+   in our django project we created a folder 'static' and created a styles.css file inside
+   that folder.
+
+   and maybe gave some css style for our website just for testing.
+
+     then after that we went to that html file were we wanted to our css to work at.
+
+     so we used it like this...
+          <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+          and we alredy know what that is hihi
+
+    but thats not enough, to make it work we have to let Django know where should he 
+    look for our static folder to publish that css.
+     
+     and that is really easy.
+
+     we went to our settings.py and writed some code...
+
+      STATICFILES_DIRS = [
+        BASE_DIR / "static"
+      ]
+
+         what this do is taht it tells django to go look for this folder.
+
+
+
+Lesson 24
+   Styling for the project
+
+   in this lesson we styled our Days of Week project, and it went quite well,
+   but not at the end because idk why my css wont work after some couple of days.
+
+      anyways mr Ordokhani mentioned in the end that this is not how developers especially
+      back end developer write css, they either buy a template or get a template from a 
+      front end developer.
+
+
+Lesson 25
+   Review PyCharm software and create a new project
+
+
+Lesson 26
+  The Blog Project
+   the adress urls
+
+    in this lesson we didnt do that much, we just created our Blog project and gave it
+    some urls
+
+
+Lesson 27
+  
+
+  this lesson went very well i can say, we created the html files for our project,
+  in the next lesson we will style our website in sha allah.
+
+
+
+Lesson 28 
+  Loading the image in the project and styling the main page
+
+  
+
+Lesson 29
+  Post list page
+
+  in this lesson we created our all-posts.html for all the blogs or posts that we have
+
+  it went quite well nothing new tbh everything goes well alhamdulilah,
+  in sha allah may allah help me to become a successfull backend developer.
+
+
+
+Lesson 30 
+   Show post details
+
+   in this lesson we created our Detail Page
+
+
+Lesson 31
+  Using dynamic data
+
+   in this lesson we made our Blog website dynamic but not fully real dynamic,
+
+Lesson 32
+  Dynamic post list and post details
+
+   in this lessson we made our details html file dynamic a bit.
+     in the next lesson i think we will do fully dynamic and use databases in sha allah.
+
+
+Lesson 33
+  Examining the database and its main structure
+
+   in django, there are two ways of using databases. temporary database and 
+   semipersistent data
+
+   a temporary databse is for example a user sees a form and fills in that forms, 
+    after that the data dissapears and gets stored in a memory.
+
+    or let me give u a better example.
+     
+     all_posts = [
+    {
+        'slug': 'learning-django',
+        'title': 'django course',
+        'author': 'Idris Ahmady',
+        'image': 'django.png',
+        'date': date(2021, 4, 5),
+        'short_description': 'this is django course in toplearn from zero to hero',
+        'content': """
+
+    }]
+
+    this is a temporary data, because we write these things and used it for our user
+    and then they are gone, they are not stored in a database.
+
+     they are stored in such as admin if i am right.
+
+     later on we will learn about SQL and how to use it, mr ordokhani mentioned that for 
+     big projects they usually dont use django database, they usually use SQL
+     because they are more professional, 
+
+     but tbh its still okej to use django database, its not a big deal.
+
+     and if we use sql we have to know that specific programming language to interact
+     with database, which is not that big deal.
+
+     but there is smt that u should know, there is something called ORM
+     Object Relational Mapping
+
+     what this is is that in django and in any other frameworks, they provide a feature for
+     us to write python or any other language related to that framework, ot interact and
+     communicate with the database.
+
+     ...but there is a limit, u cant to it in big projects
+
+
+
+Lesson 34
+  A basic review of Models in Django
+
+  in this lesson we dived into models.
+
+  remember that when u create a model class and give it a type for exmaple name
+
+  when u use models.CharField()
+
+    u have to use max_length
+
+  when u use models.Model to reference models to ur class, it will directly give u an
+  primary key (id) for ur 'products' for example
+
+
+Lesson 35
+ Creating a database and checking Migration and its commands
+
+ in models whenever u change a field model or add u have to let the database know 
+ by the changes u have made, u have to send it to the database too
+
+ coding has its own language and structure and database has its own structure,
+ if i want to attach these two togehters with python to change what happened in our fielnds
+ we have to interact with the database,
+  
+       this is an example of ORM (object oriented relation)
+
+
+       when u write python manage.py u will get all the commands to use 
+       with python manage.py
+
+
+    what is the purpose of makemigrations and migrate?
+
+    whenever u change somethings in ur models u write makemigrations to identify the changes that u have made
+
+    and after that u write migrate to store or save or transfer those changes in ur database.
+
+    the defintion of migrate is...move from one part of something to another.
+      whic really makes sense.
+
+
+when u have done makemigration ur models or migrating dont u dare go touch that
+initial 0001 bla bla file, that one file u should not touch or change anything.
+
+
+
+Lesson 36
+  Work with data and database
+
+   in this lesson mr ordokhani teached us about shell and get information or
+   add information to our database and see it from our terminal,
+
+      but unfortunetly that didnt work for me.
+
+    what is shell?
+
+      The Django shell is a Python Environment that allows u to interact with ur
+      Django Projects Databases
+
+
+Lesson 37
+  Examining the stages of changing the model 
+  and the necessity of migration
+
+
+  in the models the method that is used alot is the string method
+
+  def __str__()
+    return bla bla bla
+
+    what this method do is that it introduces the instance of that Class names.
+
+    for example u write a class which is a product and inside that class u have product name
+
+    when u want to see ur products in the database u dont want them to be like an object
+    or numeric, 
+       instead we use that str method and give it a value what it should return for us
+       and it will instead show us the name of the Product.
+
+
+      What is Validators?
+
+       They are a simple way to customize a field, for example put a limit and raise
+       a warning or error.
+
+
+Lesson 38
+  Examining how to insert, update
+  and delete in the database in Django
+
+  remember that when u use shell in ur terminal, whenever u write some command for example
+  adding new item or deleting smt, if u want it to get saved or stored in the database
+  u have to make sure that u use save method.
+
+
+  lets say u want to drag a product with shell like this 
+  Product.Object.all()[0]
+
+    i mean like if u do it like that like eehh its a bit gay man.
+
+    instead when u want to drag a specific object from ur query or smt just use 
+    the filter method.
+
+
+Lesson 39 
+  Checking the filter and get commands
+
+
+    the filter method is used to filter your search. and allows u to return only the
+    rows that matches the the objects that u searched for
+
+    so what is the diffreence between get and fitler method in django?
+
+      so basically when u want a single item just use get()
+
+      but when u want to get many objects that have the same name, then use filter.
+          for example if u want to search an items use filter.
+
+
+    if u use the get method on a object where there is more than one, u will get an error.
+
+    but if u filter an object which does not exist u will get an empy query set list
+    <Queryset []>
+
+    
+    when u want objects that for example the price is lower then 4 u write
+       Product.Objects.filter(prices__lt=4) #less then
+
+       if u want to greater than...Product.Objects.filter(prices__gt=4)
+
+       of if u want to do greater than or equal do...
+       Product.Objects.filter(prices__gte=4)
+
+
+       contains is more case sensitive objects.
+       while icontains does not care about it.
+
+
+    there will be times when u forexample want to use OR to get some of ur objects
+    from the database or query, like forexample
+    the active is true or | the rating==gt=4
+
+    in those situations we use the Q object,
+
+      and what the hell is that Q thing?
+       
+       Q is a object that takes sqls queries and make logical expressions to take or
+       encapsulate data from the database or query.
+
+       u can take advanced query with the help of Q
+
+       and its used like this...
+
+       from django.db.models import Q
+
+       Product.objects.filter(Q(is_active=True | ratings__gt4))
+
+        u can aslo use and ,
+
+       Product.objects.filter(Q(is_active=True | ratings__gt4), blabla)
+
+       keep in mind that u should have ur and after the Q, not before oth
+    
+   
+
+Lesson 40
+  
+
+
+
+Lesson 41
+  list product
+    
+    in this lesson we created a really simple product list page
+
+
+Lesson 42
+  details product
+
+
+    in this lesson we created an alos really simple detail page 
+
+
+Lesson 43
+    Reverse Url Check
+
+
+    when we usually adress an site we ususally go to the html file and do this...
+
+    href="{% url 'blabla' id=id %}"
+
+    but instead there is a better day that we can do, and that is we go to our models
+    and create a function for us which will return or reverse our urls, that is one of the
+    django features.
+ 
+     we wrote it like this btw
+
+        def get_absolute_url(self):
+        return reverse('product-detail', args=[self.id])
+
+    btw emm pls read more about reverse url because i didnt udnerstand that well.
+
+    anyways the teacher said that this is optional like it really doest matter
+    how u do it, either reverse url or  href="{% url 'blabla' id=id %}"...yeah
+
+
+    but there are just somethings that makes the function better alternative, which we dont
+    know yet but the teacher will explain in sha Allah
+
+
+
+Lesson 44
+   Checking the slug field in Django
+
+   from django.utils.text import slugify
+
+    what does slugify() do?
+     
+     it will make ur urls from this /Samsung galaxy s 10/ to this /Samsung-galaxy-s-10/
+
+   
+so in this lesson we even found our database wooohhoo which is 
+so good alhamdulilah.
+
+ so in this lesson we genareted that our slug url will be like this
+
+      /Samsung-galaxy-s-10/
+
+  now what is a slug?
+
+    A Slug is a string that can only include characters, numbers dashes, and uncerscores.
+     
+     its the part of a URL that identifies particular page on website.
+
+    What is Slug Field in models?
+     
+      SlugField in Django models, is used to store Url-friendly version of text based field such as a title.
+
+     Its primary purpose is to create cleaner, more readable, and search engine-friendly URLs for your content.
+
+
+    
+
+Lesson 45
+  Use slug in url
+
+   in this lesson we used our slug that we created earlier in our website,
+   
+   whic was really easy, we went to our urls and change our details url to this...
+
+       path('<slug:slug>', product_detail, name='product-detail')
+
+  and we gave it a slug type, we have int str and slug ig..
+
+
+  now lets talk about smt intressting, the teacher mentioned that we should 
+  use db_index in our slug fields, because we use that name many times
+  and also in django projects many programmers write many slugs field.
+
+  if db_index is True, a database index will be created for that field.
+
+  and what it does is when you set db_index to True on some field, when u set quieres
+  it will be much faster. 
+
+
+  so the question is, if db_index=True is good, why cant we use it then in all our fields.
+  to make everyting fast.
+    
+    sure yeah but thats just unsmart, u should only use db_index=True in a specific field
+    when u know that in that field alot of quieres happens(if i said that right).
+    
+    for example our slug field has much quieres.because it wants to use information for the user. it pick ups data or request and shows it to the user, like it shows the product to the user.
+
+    if u use it in all the fields it will decrease the perfomance of our website.
+
+    Mr odokhani gaved a tips that whenever we go through each section of django, we should always go check on the main django documenation about it too to get more ideas and understand better.
+
+  Homework:
+
+    search more about db_index in youtbe.
+
+    do your best to study till lesson 55, Good Luck, believe in yourself and pray to allah
+    that he in sha allah will make u successfull.
+
+
+Lesson 46
+  Check Aggregate and Count
+
+
+    in this lesson we learned about aggreation, to get the average for exmaple the price
+    of our product
+
+    sometimes you will need to retrieve values that are derived by summarizing or aggregating a collection of objects. 
+
+     thats why we use aggreation.
+
+      to use it we import... from django.db.models import Avg
+
+      and we use it like this...
+            
+       products = Product.objects.all()
+       avg_products = products.aggregate(Avg('price'))
+
+  later on we learned about order_by()
+
+  what is that?
+   
+   To sort QuerySets, Django uses the order_by() method:
+
+   we do it like this..
+
+     products = Product.objects.all().order_by('price')
+
+
+  to sort it out by (the lowest value first), u just set it to - minus instead
+
+    products = Product.objects.all().order_by('-price')
+
+      that is called Descending Order.
+
+      and the opposite one is Ascendind Order.
+
+
+Lesson 47
+  Initial review of Django admin
+   
+   in this lesson we went through admin, which was really not that hard and i already knew what it was, 
+
+
+Lesson 48
+  Admin Managment
+
+  in our admin product fields, we have one field named slug, which generates a slug name for us.
+
+  if we write anything or dont even write anything it will always return the title name in that slug.
+
+  but foreaxmple if we dont write anythign we will get an error right, so we have many options to do here,
+  
+   either we go to our slug field in the models.py and in that slug field we set it to blank=True
+
+       this way we dont need to write anything in that field.
+
+  or insetad of blank=True we can set it too editable=False which will lead to the field will not be displayed in the admin page or any other ModelForm.
+
+  but there is also a much better way.
+
+   and that is using readonly_fields = ['slug']
+
+   and what does it doo?
+
+    it tells that which of the fields is only for reading, not editing or doing deleting.
+
+    In other words, it lets you tell Django to read some fields from your database, but never try to write those back.
+
+   and we use that inside our admin.py inside a class.
+
+      here is a good thing to know.
+       
+       when u write a Class for ur admin, you have the freedom to write a name for that whatever u want.
+
+       but there is a convention (a way in which something is usually done) for all the developers, and that is whatever u write for that class, always..alwaaayyss write Admin in the last sentence of ur Class.
+
+          Forexample ProductAdmin.
+
+
+  now we can do one thing special too.
+
+  becase of our title and slug the name will be same its because we wrote this functions
+
+      def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+        which makes generates a whenever we write name for that title for example new product, automatcly that slug will be new-product which will be seen when u hover on one of ur products on the page.
+
+    we want to whenever i write something in the title, the slug field automaticlly changes too, like as if theres a buddy walking next to u doing what u do.
+
+    how can we do that? lets get into that.
+
+       we use prepopulated_fields > a text based on the content of another field 
+
+      
+Lesson 49
+   Personalizing the admin
+   (showing the filter list and editable list)      
+
+
+   in this lesson which was really short, we went through..
+
+       list_display = []
+
+       list_filter  = []
+
+       list_editable = []
+
+
+Lesson 50
+  Examining existing relationships between tables
+   (one-to-many, many-to-many, one-to-one)
+
+
+   What are the three most common types of Django Database Relationship?
+
+    many-to-many, Many-to-one and one-to-one relationship
+
+     
+    Many-to-one: Django provides us the ManyToManyField to define many to many relationships between our models. 
+
+    for example we have a model for the author and one models for the books, 
+    and ofc in the books model we will use author as a reference, thats why we use many to many fields.
+
+    This relationship tells us that an author can write more than one book, while a book can be written by one or more authors.
+
+
+    class Author(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+
+
+    class Book(models.Model):
+        title = models.CharField(max_length=100)
+        authors = models.ManyToManyField(Author)
+
+        def __str__(self):
+            return self.title
+
+
+  Many-to-one: Consider two entities: Mother and Daughter. As we know from real life, these two entities are most of the times connected like so:
+
+    Every Daughter has one Mother
+    One Mother can have many Daughters
+
+So we have a many to one here where many is the Daughter and one is the Mother.
+
+
+  one-to-one:
+
+      eeehh dont really know how to explain
+
+    here we go 
+
+      Let's assume we have two tables in a database: Department and Employee. The relationship between Department and Employee is a one-to-many relationship. A department can have many employees and each employee belongs to one department.
+
+        And, the relationship between the employees and departments is a many-to-one relationship. 
+      
+
+
+
+
+  but usually they dont use all three of those relationships in one project. 
+
+
+
+
+
+eftersom imorgon du ska till biblioteket, försökt plugga till lektion 61.
+
+
+
+om jag har inte skrivit de andra två tre lektionerna är för att 1. det var inte så vettiga saker tror jag, o 2 det har ba inte fastnat i mitt hjärna än. in sha allah hoppas jag att senare fram när vi bygger projekter så kommer jag förstå konceptet.
+
+
+
+Lesson 53
+  Retrieving information in
+   a one-to-many relationship
+
+ in this lesson we learned to how to get accesed or do query to get our products or category products from terminal using shell, which was quite fun.
+
+ when to get access our product from a category
+
+ u write the variable that u used for ProductCategory.objects.blabla
+
+ for example the variable name is product lets say, and to get all the product we write
+ product.product_set.all()
+
+    the reason that the name is product_set is because our Model for products name is Product, and what django does it loweredcase that word and provide it for us to use it to get access to products from categories,
+
+
+ but u can give product_set an own name,
+  
+  u go to that Model (Product) and inside that Categorie Foreignkey field in that Product field, u add a...
+
+    related_name='products'
+     
+     u can name it whatever u want, witht that name instead of writing...
+      
+        product.product_set.all()
+ 
+     u can just write product.products.all()
+
+    category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE, null=True, related_name='products')
+
+
+  
+  but what the in the jahannam is related_name='' and what is it used for?
+
+    If you don't specify a related_name, Django automatically creates one using the name of your model with the suffix _set, for instance User.map_set.all().
+
+
+  This is an example that how i got accessed my products from the Categories.
+
+      >>> products3 = ProductCategory.objects.get(url_title='mobile')
+      >>> productss = products3.products.all()
+      >>> productss
+      <QuerySet [<Product: Iphone 12>]>
+      >>>
+
+
+      >>> playstation = ProductCategory.objects.get(url_title='console')
+      >>> consoles = playstation.products.all()
+      >>> consoles
+      <QuerySet [<Product: ps5>]>
+      >>>
+        
+
+  
+  search more about product_set.all
+
+
+Lesson 54
+  Show one-to-many 
+    relationship in admin
+
+
+    in this lesson we looked how we can do categories alltså one to many fields from the admin which was really easy and not smt new.
+
+  
+Lesson 55 
+   Check the one-to-one
+       relationship
+
+   
+    in this video the teacher gaved an easy example on why to use one-to-one field.
+
+    for example lets say u want to build fields for a user, and that models will contain many fields such as email password and then name surname age and all that.
+
+      if we do all that together in a single model, it will get pretty heavy for the query when we want to access to it, 
+      
+      or forexample lets say i want the email of the user, and then i get all these bla bla bla fields
+
+        it will look a bit messy tbh. 
+
+      thats why we can for example create a model fields for users most secret information such as email and password,
+      
+      and another model with a less important information such as name, age and gender.
+
+      and in one of those model fields we can just write our one-to-one fields.
+
+      but this is not a real example that developers do in real projects, this was just an explanation but in the future we will go through the real concept of it in sha allah.
+
+
+        in the end of the video the teacher suggested that we search about the zero-to-one relationship which is like the one-to-one relationship.
+
+
+Lesson 56
+ Changing the name 
+ of the module in admin
+
+   
+   so as we seen before, lets say we have a model named ProductCategory, sounds fair right?
+
+   but when u admin.site.register that model, in ur admin page it will say
+
+     ProductCategorys
+ 
+     sounds really gay right?
+
+     but how can we fix that?, thats easy.
+
+     so we go to that ProductCategory class.
+      
+      and we give it another class, just do it like this and ur good
+
+
+    class ProductCategory(models.Model):
+    title = models.CharField(max_length=130)
+    url_title = models.CharField(max_length=130)
+
+        def __str__(self):
+            return self.title
+        
+        class Meta:
+        verbose_name = 'Products Category'
+        verbose_name_plural = 'Product  Category'
+
+
+        BOOM thats it.
+
+        what is the class Meta?
+
+           Meta class in an inner class in Django Models. which contain Meta options, that are used to abstract (extract or remove) or change the behaviour of your model fields..
+
+           
+
+Lesson 57
+  Examining the many-to-many relationship
+
+
+   why is there no on_delete option in manytomany fields model
+
+    in this lesson we created our many to many fields with tag field.
+
+Lesson 58
+  Review and work with many-to-many rel in the shell
+
+
+
+
+Lesson 59
+  Changing the structure of models
+       for the store project
+
+      when we create a slugfield, the slugfield itself autoamtically adds a db_index=True
+      
+
+Lesson 60
+  Preparation of product management in admin
+
+  in this lesson we deleted some of the model fields and databases.
+
+
+Lesson 61
+ Transfer template to project
+
+  
+   in this lesson we transfered our template into our project, and we done it so much easier and faster then last time.
+
+   we used static files to get accessed to our css js and images.
+
+     but what is static files?
+
+       static files includes file like CSS, Javascript and images that you want to serve alongside your side or project.
+
+       Websites generally need to serve additional files such as images, JavaScript, or CSS. In Django, we refer to these files as “static files”. 
+
+       the reason we use static files is because if we use them inside our files and folder it will take so much space and energi, so we just put the images and all that inside an own folder so that it takes less energi.
+
+         and the static files wont change when your applications is running.
+
+       The STATICFILES_DIRS file tuples tell Django where to look for static files. In this case, the static files are stored in a folder called static at the root folder.
+
+
+         why do we use static files?
+          
+          Static files are files that don't change when your application is running. These files do a lot to improve your application, but they aren't dynamically generated by your Python web server like a usual HTML response.
+
+
+        
+Lesson 62
+  Review of django render partial
+
+  what is render partial?
+
+   Django render_partial tag allows inserting rendered views into templates.
+
+
+    u have two ways to use render_partial
+
+     one way is that with using urls from the name,
+      
+      the other man is function.
+
+     
+     but its better with function because what if the user accidently get accessed to that url render-partial, that is just bad for a user to see.
+
+    
+    what is the difference between include and render_partial?
+
+      include is a good choice to for example get a file and extract it another, u can even send data with include, but u have to write it everytime u use include, so it has many problemts
+
+      But the structure of django render partial is created so that the code for the retrieving database information is only written once and can be called wherever it is needed
+
+       thats why render partial is a better choice.
+
+
+Lesson 63
+
+    When we do Product.objects.all()
+         
+          it returns us a query of that data.
+
+     what is a Queryset?
+
+      A Queryset is simply a list of objects or data from the Django Models
+
+
+Lesson 64
+
+  in this lesson we created our detail page.
+
+
+
+Lesson 65
+ Implementation of contacting us
+   and starting work with forms
+
+
+     in this lesson we created the forms models for the admin to see and write and response.
+
+     in the next lesson we will create forms for the user to write in smt.
+
+  
+Lesson 66 
+   part 2
+
+   the 2 most import attributes in forms is method and action
+
+    when we want to sign in something or log ing or register or edit a form, we always use the post method.
+
+     what action does is that is wants to know where should the data or information be sent to,.. {% url '' %}
+
+       but even if u dont write the action it till automatically send the data to the own form page,  it sends it back to the own page, it doesnt send it anywhere else except if u give it a different address
+     
+
+
+Lesson 68
+  بررسی Django Forms ( بخش دوم )
+
+
+    what is is_valid()
+
+    The is_valid() method is used to perform validation for each field of the form, it is defined in Django Form class. It returns True if data is valid and place all data into a cleaned_data attribute.
+
+
+      shit i just found out smt, when u name smt in ur context to use it in ur template,
+       dont use for example {'contact-page':ContactPage}
+
+         if u do this django thinks that it should do operations - or anything(django cant parse it)
+
+
+         what is cleaned_data ?
+         
+           form.cleaned_data returns a dictionary of validated form input fields and their values 
+
+    u can let django to use the POST method in two ways,
+
+     one is by doing like this...
+
+         if request.method == 'POST':
+        contact_page = ContactPage(request.POST)
+
+         or just..
+
+         contact_page = ContactPage(request.POST or None)
+
+
+    one thing intressting about django forms is that for example lets say u have a form and u give one of ur input a maxlenght of 50 lets say.
+
+     and in ur website when u go to developer tools u can see in the html file that it says maxlength 50,
+
+       but if u delete that from developer tools and do more than 50 characters, django will still give u error and wont send it to the server, which is really cool
+
+
+     how to override ur own error message for example if the user didnt write anything on a form,
+
+  field_name = models.Field(error_messages = {"required": "e du bög elleh? skriv ngt då"})
+        
+
+      error_message helps u to override a new message for a specific error that u want ur user to see.
+
+
+      what is a widget in django forms?
+
+        widget lets u customize ur items or forms the way u want them to be
+         
+          for example u can give it a attribute or placeholder 
+
+
+     what does error_messages={} do in django forms?
+
+
+Lesson 70
+
+   What does 
+      if request.method == 'POST' mean?
+
+      The result of request.method == "POST" is a boolean value - True if the current request from a user was performed using the HTTP "POST" method, of False otherwise (usually that means HTTP "GET", but there are also other methods).
+
+
+       {% comment %}
+                            <div class="col-md-6 form-group">
+                                {{ contact_form.email.label_tag }}
+                                {{ contact_form.email }}
+                                {{ contact_form.email.errors }}
+                            </div>
+
+                            <div class="col-md-6 form-group {% if contact_form.full_name.errors %} text-danger  {% endif %}">
+                                {{ contact_form.full_name.label_tag }}
+                                {{ contact_form.full_name }}
+                                {{ contact_form.full_name.errors }}
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                {{ contact_form.subject.label_tag }}
+                                {{ contact_form.subject }}
+                                {{ contact_form.subject.errors }}
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                {{ contact_form.text.label_tag }}
+                                {{ contact_form.text }}
+                                {{ contact_form.text.errors }}
+                            </div>
+
+                            {% comment %}{{ contact_form }}{% endcomment %}
+                            {% comment %}<div class="form-group col-md-6">
+                                <input type="text" name="fullname" class="form-control"
+                                       placeholder="نام">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" name="email" class="form-control"
+                                       placeholder="ایمیـل">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" name="subject" class="form-control"
+                                       placeholder="موضـوع">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <textarea name="message" id="message" class="form-control" rows="8"
+                                          placeholder="پیغـام شمـا"></textarea>
+                            </div>{% endcomment %}
+                            <div class="form-group col-md-12">
+                                {% comment %}<input type="submit" name="submit" class="btn btn-primary pull-right" value="ارسـال">{% endcomment %}
+                                <button type="submit" class="btn btn-primary pull-right">ارسال</button>
+                            </div>
+                            {% endcomment %}
+
+
+
+Lesson 71
+  Customizing the user model
+
+    What is ModelForm?
+     
+       For example suppose we have a model containing various fields, with ModelForm we dont need to repaeat the fields in the form file.
+
+         For this reason Django provides a helper class which allows us to create a Form Class from Django Model.
+
+          Example:
+
+           class ContactUsModelForm(forms.ModelForm):
+              class Meta:
+                  model = ContactUs
+                  fields = ['Email', 'Name_and_Surname', 'title', 'Message']
+
+        
+
+      search more about ModelForm and fields, exclude, fields = '__all__' 
+
+
+
+
+
+Lesson 72
+   
+    
+    whenever u use a ModelForm, u dont need to have this..
+
+        contact = ContactUs(
+               title = contact_form.cleaned_data.get('title'),
+               Name_and_Surname = contact_form.cleaned_data.get('Name_and_Surname'),
+               Email = contact_form.cleaned_data.get('Email'),
+               Message = contact_form.cleaned_data.get('Message'),
+           )
+
+           u only use this whenever u dont use the ModelForm.
+
+            when u are using the ModelForm u just simply write 
+             
+             contact.save() then that will do the magic for u.
+
+
+      Forms created from forms.Form are manually configured(justerad) by you!
+
+        
+        its good to use forms.Form for forms that do not interact with models or database.
+
+           For example a Contact Form, or a newsletter subscription form does not necessarily interact with the database.
+
+          
+        but forms created from forms.ModelForm will be automatically created and then later can be tweaked by you!
+
+
+Lesson 73
+   Examining Class Based Views (TemplateView)
+
+   remember that In Python you should add self as the first parameter to all defined methods in classes:
+
+     class MyClass:
+        def method(self, arg):
+          print(arg)
+
+
+          search more about Class Based View, and how to use context in a class based view.
+
+
+     What is a Class Based View?
+
+      Class Based View provides an alternative way to implement views as Python Objects instead of functions
+
+        its good to know that developers there is a convention between developers when they use Class Based View at the end of their class name they name it View, for example HomeView, ContactView
+
+         what is the difference between fbv and cbv?
+           
+            function based view is a traditionall way of implenting views in Django,
+            it takes a HTTP request as an request and returns a HTTP response.
+
+             On the other hand, class based view offers a more powerful and flexible approach to implenting views in Django.
+
+        What is a HTTP?
+            The Hyper Text Transfer Protocol is designed to enable communications between the clients and servers
+
+              Example: A client (browser) sends an HTTP request to the server; then the server returns a response to the client.
+
+
+          What is a TemplateView?
+            
+            its just a simple way to render an html page or template with provided context.
+
+            TemplateView should be used when you want to present some infomartion on an HTML page.
+
+              TemplateView shouldn't be used when your page has forms and does creations or update of objects,
+                in that case u should use FormView, CreateView, UpdateView.
+
+
+          TemplateView is most suitable in the following cases:
+
+            Showing ‘about us’ like pages that are static and hardly need any context. 
+            
+            Though, it is easy to use context variables with TemplateView.
+
+            Showing pages that work with GET requests and don’t have forms in them.
+
+        
+ 
+74
+  Examining List Views in Django
+
+  Search more about ListView what is it good for and when should we use it.
+
+    What is ListView?
+
+    A page representing(showing) a list of objects for example many products,
+
+     so its used when we want to display or view a list of objects on an HTML page.
+      
+      ListView should not be used when our page has forms and creates or updates objects.
+
+
+
+     
+
+
+
+75
+  Examining Detail View and FormView in Django
+
+   What is DetailView?
+
+    its a view for displaying a single object, for example product.
+
+
+    Lets say we have forms in our app, when we use Class based view we can do write codes for form that takes much less time and readeable.
+
+      In those situations we use FormView
+
+       What is a FormView?
+
+        FormView should be used when we need a form on the page and want to perform a specific action when a valid form is submitted.
+
+        class ContactUsView(FormView):
+    
+            template_name = 'Contact/contact-us.html'
+            form_class = ContactUsModelForm
+            success_url = '/contact/'
+
+            def form_valid(self, form):
+                form.save()
+                return super().form_valid(form)
+    
+      
+          We already know what a template_name is and what its used for.
+
+            so what is form_class?
+
+              form_class is for assigning the specific form u want to display on ur page, or even ModelForm as u can see that we are using.
+
+               now lets say u have that form and u click the button to submit, where will u be redirected?
+                
+                 thats why we use success_url to redirect the user to a specific page.
+
+                  now lets say that we have submitted the form and redirected the user to a page, wherre the hell will that data transfer to?
+
+                   it wont transfer anywhere thats why we should use the form_valid method
+
+                    what is the form_valid method?
+
+                      Model Form views prodivde a form_valid() implentation
+                      that saves the model automatically.
+
+                      but dont forget to write form.save() too
+
+                       and when u want to use that form in ur HTML page the name for that Form is form.
+
+                  
+
+Lesson 76
+  CreateView and upload File
+
+    what is CreateView?
+
+      
+
+
+    when using CreateView u dont need 
+
+            def form_valid(self, form):
+                form.save()
+                return super().form_valid(form)
+
+
+    beacuse the CreateView will automatically save the form if everything is valid and performing perfect.
+
+     What is the difference between FormView and CreateView in Django
+
+       FormView should be used when you need a form on the page and want to perform a certain action when a valid form is submitted.
+
+        CreateView would probably be a better choice if u want to insert a model instance in database on form submission(a count of the number of visitors who fill out a form on your website)
+
+        as we remember that when we used FormView and whenever we submitted the form and everything worked perfect, we hadnt the ability to see that in our models admin.
+
+         thats why we used this...
+
+             def form_valid(self, form):
+                form.save()
+                return super().form_valid(form)
+
+                to save the data for us.
+
+
+
+          this is our CreateView btw...
+
+          class ContactUsView(CreateView):
+              template_name = 'Contact/contact-us.html'
+              form_class = ContactUsModelForm
+              success_url = '/contact/'
+
+
+    The teacher suggested that we should look into DeleteView and UpdateView in django documenation.
+
+
+
+ Now lets talk about the most important topic in django, and that is working with Files and how to upload them
+    
+
+     when u have an input with the type file, and when u want to insert it to the server as well. in the form tag make sure u have the enctype='mulitpart/form-data'
+
+       
+   #FILES
+    
+class CreateProfileView(View):
+     
+     def get(self, request):
+          return render(request, 'Contact/create-profile.html')
+     
+     def post(self, request):
+          print(request.FILES)
+          return redirect('/contact/create-profile')
+ 
+
+Lesson 77 
+  Examining uploading file in Django
+
+
+  uploading in django files is pretty easy.
+
+   first create a model to insert files or images.
+
+   class UserProfile(models.Model):
+    image = models.FileField(upload_to='images')
+
+
+and in ur settings create this director, that where all the files or images will transport to.
+
+MEDIA_ROOT = BASE_DIR / "uploads" 
+
+  and create a folder with that name.
+
+
+  forms.py
+
+  class ProfileForm(forms.Form):
+    user_image = forms.FileField()
+
+  views.py
+
+     
+def store_file(file):
+    with open('temp/image.jpg', "wb+") as dest:
+        for chunk in file.chunks():
+            dest.write(chunk)
+
+
+class CreateProfileView(View):
+    def get(self, request):
+        form = ProfileForm()
+        return render(request, 'Contact/create-profile.html', {
+            'form': form
+        })
+
+    def post(self, request):
+        submitted_form = ProfileForm(request.POST, request.FILES)
+
+        if submitted_form.is_valid():
+            # store_file(request.FILES['profile'])
+            profile = UserProfile(image=request.FILES["user_image"])
+            profile.save()
+            # return redirect('contact/create-profile/')
+
+        return render(request,'Contact/create-profile.html', {
+            'form': submitted_form
+        })
+
+            
+
+Lesson 78
+
+
+   when we have successfully created models for inserting images and views and html file for all that,
+   
+    but to let django to ease the secure and show the images on our website we must provide a MEDIA_URL in the settings and some little codes in the url
+
+      
+      What is the Media_Url?
+
+       this is the url where users can access media files or images
+
+
+       MEDIA_URL = '/medias/'
+
+
+         ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+views.py  
+
+  class ListProfileView(ListView):
+     template_name = 'Contact/profiles.html'
+     model = UserProfile
+     context_object_name = 'profiles'
+
+
+
+Lesson 79
+ Session 
+
+   practically the system that lets us login and create user, is sessions
+
+   What is session?
+    
+    A session is a limited information form a user or a data related to a product or something else,
+
+      and its not like a heavy amount of information and u cannot compare it with a databse, its not like a databse
+
+       and another thing about session is that it is temporary.
+
+
+      to use sessions in django we have to make sure that we have the orders in our settings.
+
+
+      MiddleWare
+
+           'django.contrib.sessions.middleware.SessionMiddleware'
+
+
+      INSTALLED_APPS 
+         
+           'django.contrib.sessions'
+
+
+     keep in mind as we mentioned that Sessions are temporary, and it has a expired date.
+
+       and django lets a session have about 2 weeks, but dont worry u can edit the expired date.
+
+       like this...
+
+        settings.py 
+         
+         SESSION_COOKIE_AGE = 120
+
+          120 means 2 minutes. 
+
+      
+    What can i use Sessions for?
+
+
+  So basically i got stuck in a very very fun error and the error is this piece of shit
+
+  Field 'id' expected a number but got ''.
+
+   i have not solved it yet but i will continue on through the course untill in sha allah mr orodokhani will help me with the question.
+
+
+
+
+Lesson 80 
+ تکمیل بحث Session ها
+
+
+
+Lesson 81
+    shakhsi sazi model karbar
+    Customizing the user model
+
+  what is get_user_model() function in django?
+
+   This method will be return the currently active suer model - the custom user model if one us specified in your models, or User otherwise.
+
+   u have two ways of creating a User for logging in, one way is that u just create ur own models or forms for the user to log in or register.
+
+    the other way is that to just use the model auth_user example and edit it too,  which is must faster and so much better.
+
+   
+     u write class User(AbstractUser)  in ur models and that replaces the model auth_user in ur database and u can just take the fields that u want to use for ur user.
+   
+  
+   the model auth_user is in AbstractUser, but u can also use AbstractBaseUser which there are no alot of fields in there compared to AbstractUser.
+
+
+
+      dont forget to make sure that the model auth_user goes to that class that u just created. u have to write this in ur settings.py
+
+        AUTH_USER_MODEL = 'account_module.User' -- forexample
+
+
+    
+    so what is exactly the difference between AbstractUser and AbstractBaseUser?
+
+    AbstractUser: Use this option if u are happy with existing fields on the user model and just want to remove the username field.
+
+    AbstractBaseUser: use this option if u want ot start from scratch b.y creating your own completely new user model
+
+
+
+
+    now this is intressting, what is email_actvie_code?
+
+      u see when forexample register on a website with ur email, and u have to verify that email, u basically get a code to ur email which is a button, as soon as u click that button the verification will be accepted successfully, therefore u can comfortable accesss the page with ur email.
+
+        this is what we are going to learn and assign in our own proejct...gosh im so excited.
+
+
+
+ERRORS:
+account_module.User.groups: (fields.E304) Reverse accessor 'Group.user_set' for 'account_module.User.groups' clashes with reverse accessor for 'auth.User.groups'.
+        HINT: Add or change a related_name argument to the definition for 'account_module.User.groups' or 'auth.User.groups'.
+auth.User.groups: (fields.E304) Reverse accessor 'Group.user_set' for 'auth.User.groups' clashes with reverse accessor for 'account_module.User.groups'.
+        HINT: Add or change a related_name argument to the definition for 'auth.User.groups' 
+or 'account_module.User.groups'.
+
+
+  all this got solved my friendii hihihihihihihihih
+
+
+not lets say step by step what to follow when creating the user, first create the model like thiss..
+
+step 1
+
+class User(AbstractUser):
+    mobile = models.CharField(max_length=201)
+    email_active_code = models.CharField(max_length=130)
+
+    user_permissions = models.ManyToManyField(Permission,
+      related_name='custom_user_permissions', blank=True )
+    
+    groups = models.ManyToManyField(Group, related_name='custom_user_groups')
+
+
+    def __str__(self):
+        return self.get_full_name()
+
+
+step 2
+
+ to let the database know where ur model user are
+
+ AUTH_MODEL_MODEL = 'account_module.User'
+
+ and then ig u do makemigrations and mgirate whcih i tbh dont know what really happened 
+ but i have to search about it.
+
+  but i remember that forexample we have many models from different apps right, to get our models User dont get mixed with different models we comment those apps in installed_apps and the urls for those models page
+
+   and delete also the migrations files in migration folder, not the folder gosh just the files.   
+
+   and then after that we have made makemigrations and migrate we uncomment those apps and urls and then do migrate once again so that those models that we created earlier get back aganin,
+
+
+Lesson 82
+   Paging
+
+    What is ordering in ListView in django
+
+
+Lesson 83
+  Authentication register page | part 1
+
+
+  I just found something really intressting
+
+    as u already knoe cleaned_data returns a list of values that u have signed in forexample.
+
+     but whenever i signed in and checked my terminal to see the values, it wasnt a list it was just a really weird format.
+
+        and the reason for that is that we have to assign method='post' and action=urlblalba
+
+         to our form tag in template
+
+         Example:
+                  
+            <form method="post" action="{% url 'register_page' %}">
+
+
+     try to learn to do clean_email in ur email so that the user always use @gmail.com
+
+
+lesson 84
+  finishing the signup page
+
+   
+     what does the validators.EmailValidator do?
+
+
+
+
+lesson 85
+
+     now lets talk about the email_code_confirm
+
+      here is the code for that..
+
+
+class ActivateCodeView(View):
+    def get(self, request, email_active_code):
+        user: User = User.objects.filter(email_active_code__iexact=email_active_code).first()
+        
+        if user is not None:
+            if not user.is_active:
+                user.is_active = True
+                user.email_active_code = get_random_string(72)
+                user.save()
+                # todo: show your user that the account was logged in successfully
+                return redirect(reverse('login_page'))
+            else:
+                # todo: show your account was activated message before to the user
+                ...
+
+        raise Http404
+
+
+        
+
+
+
+Lesson 86
+   Implementation of project login
+
+
+what does .first() do in django?
+   
+
+
+  what does hassh mean in django
+
+   In Django application hashes of passwords are stored and not the clear text password,
+    so that it would be impossible for someone else get access to that users account even if the passwords are the same. the hashes wont never be the same.
+
+  
+  whenever we do a login in a page, our sessionid will get stored in the cookies, and if we delete that session id its like that as we have never even logged in 
+
+
+   lets say for example the user logs in in the wrong email or password into the form.
+
+     and for u to show the error we dont say 'the password is incorrect' or 'the email is incorrect' therefore we say 'the email or password is incorrect'
+
+      
+
+Lesson 87
+  Implementation of password forgetting and recovery section (first part)
+
+
+   this one was eehh really hard but i think i made it by the will of god.
+
+    
+
+  these are the codes that i wrote for this boring stupud lesson.
+
+
+
+    class ForgotPasswordView(View):
+    def get(self, request: HttpRequest):
+        forget_pass_form = ForgotPasswordForm()
+        context = {'forget_pass_form': forget_pass_form}
+        return render(request, 'Forgot_Password.html', context)
+
+    def post(self, request: HttpRequest):
+        forget_pass_form = ForgotPasswordForm(request.POST)
+        if forget_pass_form.is_valid():
+            user_email = forget_pass_form.cleaned_data.get('email')
+            user: User = User.objects.filter(email__iexact=user_email).first()
+            if user is not None:
+                # send reset password email to user
+                pass
+
+        context = {'forget_pass_form': forget_pass_form}
+        return render(request, 'Forgot_Password.html', context)
+
+
+class ResetPasswordView(View):
+    def get(self, request: HttpRequest, active_code):
+        user: User = User.objects.filter(email_active_code__iexact=active_code).first()
+        if user is None:
+            return redirect(reverse('login_page'))
+
+        reset_pass_form = ResetPasswordForm()
+
+        context = {'reset_pass_form': reset_pass_form}
+        return render(request, 'Reset_Password.html', context)
+
+
+
+    and here are the urls.
+
+
+    path('forget-pass', ForgotPasswordView.as_view(), name='forgot_password_page'),
+    path('reset-pass/<active_code>', ResetPasswordView.as_view(),  name='reset_password_page'),
+
+
+    Forgot.html
+
+
+      <div class="container">
+    <section id="form"><!--form-->
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+            </div>
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="signup-form"><!--sign up form-->
+                    <h2>فراموشی رمز عبور</h2>
+                    <form method="post" action="{% url 'forgot_password_page' %}">
+                        {% csrf_token %}
+
+                        {{forget_pass_form.email.label_tag}}
+                        {{forget_pass_form.email}}
+                        {{forget_pass_form.errors}}
+
+                     
+
+
+
+                        <button type="submit" class="btn btn-default">فراموشی رمز عبور
+                        </button>
+                    </form>
+                </div><!--/sign up form-->
+            </div>
+        </div>
+    </section>
+</div>
+<!--/form-->
+
+
+
+    Reset_Password.html
+
+      
+
+<div class="container">
+    <section id="form"><!--form-->
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+            </div>
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="signup-form"><!--sign up form-->
+                    <h2>baziabi حساب کاربر</h2>
+                    <form method="post" action="{% url 'forgot_password_page' %}">
+                        {% csrf_token %}
+
+                     {{reset_pass_form}}
+
+
+                        
+                       
+                        <button type="submit" class="btn btn-default">baziabi حساب کاربر</button>
+                    </form>
+                </div><!--/sign up form-->
+            </div>
+        </div>
+    </section>
+</div>
+<!--/form-->
+
+
+
+  yeah thats about it...
+
+
+
+   from django.core.mail import send_email, send_mass_email
+
+     what is the difference between send_email and send_mass_email
+
+       the difference is that send_email is for one user and send_mass_email 
+         is for group of users.
+    
+
+    
+      what does render_to_string do?
+
+        what this does is it converts ur variable or the thing into a string so that 
+         u can show it in ur template for the website.
+
+
+
+      from django.utils.html import strip_tags
+       what is strip_tags?
+
+
+       from_email: means that who sends the email.
+
+
+    when creating a function to send a email to a user, u need 5 arguments or items
+
+       def send_email(subject, context, to, template_name )
+
+        1. subject: the first one is subject. alltså the title of the email.
+
+        2.  context: to show the data to the page for the user. forexample like the context dictionary that we everytime use in our views.py function
+
+        3. to: to who should it be sent to.
+
+        4. template_name: alltså which html file should we sent the data to.
+
+    thats about it...
+
+
+
+
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
+def send_mail(subject, context, to, template_name):
+    try:
+        html_message = render_to_string(template_name)
+        plain_message = strip_tags(html_message)
+        from_email = ''
+        send_mail(subject, plain_message, from_email, [to],html_message=html_message)
+    except:
+        pass
+
+
+     now how do we send the email?
+
+        EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+        EMAIL_USE_TLS = True
+        EMAIL_HOST = 'smtp.gmail.com'
+        EMAIL_HOST_USER = 'edrisahmady33@gmail.com'
+        EMAIL_HOST_PASSWORD = 'Uncharted45'
+        EMAIL_HOST = 587
+
+    you have to write all these lines in ur settings.py
+
+         
+       what does the EMAIL_BACKEND do in django settings?
+
+         The EMAIL_BACKEND expression helps determine the most suitable backend when sending emails through the Django HTTP SMTP Protocol
+
+           It tells Django to send the email to the recipient email using SMTP and not to the console.
+
+          
+          now what the hell is SMTP?
+
+            The Simple Mail Transfer Protocol (SMTP) is used for sending and recieving emails between e-mails clients and servers
+
+
+     
+
+   Lesson 89
+
+
+     yeah this lesson didnt went as i expected. the fkn email sender doesnt work and i really dont gawdamn why gooosshh
+
+       pls help me Allah i love u and miss u so much.
+
+       gosh this eehhh idk what to do i just think i should skip it and come back to it later in sha allah i really hope that allah swt will help me with that.
+
+
+
+
+
+lesson 91
+
+  in this lesson we made our footer and header a bit dynamic, and then we created our about us page and used the template so it was a easy fun process
+
+   but the teacher went through smt like footer link and all taht make sure u check in that later because it seemed too easy and not that important concept of the video.
+
+   
+
+lesson 92
+
+  in sliders model we usually write is_active object
+  
+    or forexample when should the slider show the page
+    and when should it go to the next one
+
+    
+   when u use target blank in ur a tag what it does is whenever u click on that button
+    it opens a whole another page for u.
+
+
+     in this lesson we created our sliders which went really well
+
+       models.py
+
+       class Slider(models.Model):
+          slider_name = models.CharField(max_length=130)
+          url = models.URLField(max_length=130)
+          url_title = models.CharField(max_length=130)
+          description = models.TextField(max_length=130)
+          image = models.ImageField(upload_to='images/sliders')
+          is_active = models.BooleanField(default=True)
+
+        
+      views.py 
+
+       class HomeView(TemplateView):
+          template_name = 'home_module/Home_page.html'
+
+          def get_context_data(self, **kwargs):
+              context = super().get_context_data(**kwargs)
+              sliders = Slider.objects.filter(is_active=True)
+              context['sliders'] = sliders
+
+              return context
+
+
+
+           what is forloop. bla bla bla
+
+         
+    
+
+Lesson 93
+  Creating article models
+   and article categories
+  
+
+  in this lesson we created our Article model and ArticleCategory model
+
+   models.py
+
+    ArticleCategory
+
+   class ArticleCategory(models.Model):
+    parent = models.ForeignKey('ArticleCategory', on_delete=models.CASCADE, null=True)
+    title = models.CharField(max_length=130)
+    url_title = models.CharField(max_length=130, unique=True)
+    is_active = models.BooleanField(default=True, blank=True)
+
+
+     Article
+
+class Article(models.Model):
+    title = models.CharField(max_length=130)
+    slug = models.SlugField(max_length=130)
+    image = models.ImageField(upload_to='images/articles')
+    short_description = models.TextField(max_length=130)
+    text = models.TextField()
+    is_active = models.BooleanField(default=True, blank=True)
+    selected_categories = models.ManyToManyField(ArticleCategory)
+
+  
+  
+   we can set our objects to unique if someone added a same blog or something similiar.
+
+     we use the unique=
+
+       u can also use unique_for_month, unique_for_year or unique_for_year
+
+        search about those three things that i just mentioned. 
+
+  
+   
+   when we have products or articles or a group of objects. its good to put them in a specific parent.
+   
+      for example lets say we have a product which is a Mobile
+
+        what is good to do is that we create a parent with the name Digital (for example)
+
+         then we put that Mobile product into that digital group.
+
+         here is the code example to create a parent for objects...
+
+            parent = models.ForeignKey('ArticleCategory', on_delete=models.CASCADE,null=True)
+
+
+    what is allow_unicode?
+
+     
+
+Lesson 94
+  Display list of articles
+
+   in this lesson which was just repetition, we extracted the blog file template into our own project and showed our data too.
+
+
+    as an experience, here is a error that i just went through 
+     
+      'Article View' object has no attribute 'META'
+
+
+       and i got this because i write this...
+
+           def get(request, self):
+
+        instead write this...
+
+           def get(self, request):
+
+
+      what is the difference between image.url and image.path
+
+
+   During the web development process, front end developer create a maintan beautiful template page and give it to the back end developers.
+
+     in that page there are images ofcoure, and sometimes the image example in that page isnt the same size or width with our own image that we are going to convert
+
+
+
+
+
+      thats why we use a library package or smt which is called sorl thumbnail.
+       
+        which we are going to learn in the next lesson,
+         see u then Mr Idris BackEnd Engineer
+
+
+Lesson 95
+  sorl thumbnail 
+
+     
+     now we got to fkn remember this.
+
+      there will be moments where i get a weird error which says pip invoked in a bla bla and with lots of errors
+
+      jjust calm down and do this
+
+      https://bootstrap.pypa.io/get-pip.py
+
+      go to this page and it will automatically download something for u then head right back to ur visual studio code and then try to install the package again.
+
+       
+
+       and when wwe use thumbnails the image uses less KB
+
+       
+
+    alright so this lesson was quite fun and learned something very usefull for images in our website 
+
+
+    alright this is the process of using sorl thumbnail
+
+     first install it 
+
+      pip install sorl-thumbnail
+
+
+    then register ‘sorl.thumbnail’, in the ‘INSTALLED_APPS’ section of your project’s settings.
+
+
+    and write this at the top of ur html website after the extend tag
+
+       {% load thumbnail %}
+
+
+          then use it.   hej 
+    
+            {% thumbnail article.image "862x450" quality=95 crop='center' as im %}
+                <img src="{{ im.url }}">
+            {% endthumbnail %}
+
+
+
+Lesson 96
+  Checking the save method in admin
+
+
+  this lesson was quite intressting. in this lesson we created a functionality.
+   that whenever we create a blog, the user that create that blog it will automatically show his email so that the viewers will se who wrote the blog or article.
+
+
+   we first created a author object in our article models
+
+  author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, editable=False)
+
+ 
+ eftersom our get_full_name doesnt return any name or lastname to use, because we created fields with only emails and password.
+
+  so we created a function which if first name or lastname didnt exist, it should return the email instead.
+
+      
+    def __str__(self):
+        if self.first_name is not '' and self.last_name is not '':
+            return self.get_full_name()
+        
+        return self.email
+
+
+    
+    then we went to our admin and used the save_model function...
+
+      
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ['title', 'slug', 'is_active', 'author']
+    list_editable = ['is_active']
+
+
+    def save_model(self, request, obj: Article, form, change):
+        if not change:
+            obj.author = request.user
+        # print('change:', change)
+        # print('request:', request)
+        # print('user:',request.user)
+        # print('object:',obj)
+        return super().save_model(request, obj, form, change)
+
+
+    what is the save_model in django?
+
+     Django Admin save_model is used to create and update model object from Django admin panel.
+
+
+       i will write more about this function.
+
+
+        
+Lesson 97
+ examining the shamsi date, and creating a template filter.
+
+
+    if u want to have the shamsi date download the jalali date at home.
+
+    
+    the difference between creating a normal package and a python package is that the python package has the __init__.py
+
+
+    when u write a template filter in ur html u have to do rusnerver everytime.
+
+
+     the teacher mentioned that dont do query in a template filter tags in ur html file.
+
+       u are free to do it but it just will be slow the perfomance will have problems and all that.
+
+
+        gosh this lesson is about having jalali date in a website and it makes me a bit MEEOOWII
+
+
+   alright this lesson went kinda of well
+
+  in this lesson we created a template filter to show the iranian calender on our websites.
+
+
+  models.py
+
+   class Article(models.Model):
+    create_date = models.DateTimeField(auto_now_add=True, editable=False)
+ 
+
+    we can do this in our views.py too.
+          
+    def get_context_data(self, *args, **kwargs ):
+        context = super(ArticleListView, self).get_context_data(**kwargs)
+        context['date'] =  date2jalali(self.request.user.date_joined)
+
+
+    but instead we did this..
+
+     we created a app with the name polls
+
+     and in that app we created a folder with the name templatetags. but dont forget to put a __init__.py file because the folder should be python package
+
+
+     and inside that template tags folder create file with the name poll_extras.py
+
+     and write this inside the file
+
+from django import template
+from jalali_date import date2jalali
+
+          register = template.Library()
+
+
+          @register.filter(name='cut')
+          def cut(value, arg):
+              """Removes all values of arg from the given string"""
+              return value.replace(arg, '')
+
+
+          @register.filter(name='show_jalali_date')
+          def show_jalali_date(value):
+              return date2jalali(value)
+
+
+   tbh... i didnt understand any shit of that shamsi shitty thing calender.
+
+    btw dont forget to install jalali-date and use this line in ur settings.py installed apps
+
+     	'jalali_date',
+
+
+
+   and here is the html line code to how to use the jalali date.
+
+    <li><i class="fa fa-calendar"></i> {{article.create_date |  show_jalali_date }} </li>
+
+  dont forget o load this tag too...
+
+  {% load poll_extras %}
+ 
+  that is ur poll_extras.py
+
+
+   
+
+lesson 98
+  Filter articles by category
+
+   what is parent_id in django 
+
+     no idea
+
+   what is articlecategory_set in html django  
+
+     no idea
+
+
+    lets say u have categorys in ur side website, and when u click on that category name u want it to drop the products related to that category to be shown.
+
+     u do it like this..
+
+        {% if main_category.articlecategory_set.all %}
+
+            <a data-toggle="collapse" data-parent="#accordian" href="#{{ main_category.url_title }}">
+            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+            {{main_category}}
+
+        {% endif %}
+
+
+        u have to have this piece of code in ur code
+
+          href="#{{ main_category.url_title }}">
+
+           now i know why we have a url title in our models
+
+          url_title = models.CharField(max_length=130, unique=True)
+
+      
+      dont u dare forget that # too, because i forgotted mine and it didnt work.
+
+
+
+  her is our code to the html for categories
+
+
+   <h2>دسته بندی محصولات</h2>
+<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+
+    {% for main_category in main_categories %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                {% if main_category.articlecategory_set.all %}
+                <a data-toggle="collapse" data-parent="#accordian" href="#{{ main_category.url_title }}">
+                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                    {{main_category}}
+                </a>
+                {% else %}
+
+                <a href="{% url 'article_by_category_list' category=main_category.url_title %}">
+                    دسته 1
+                </a>
+
+                {% endif %}
+                
+            </h4>
+        </div>
+
+        {% if main_category.articlecategory_set.all %}
+
+        <div id="{{ main_category.url_title }}" class="panel-collapse collapse">
+            <div class="panel-body">
+                <ul>
+                    {% for sub_category in main_category.articlecategory_set.all %}
+                    <li><a href="{% url 'article_by_category_list' category=sub_category.url_title %}">{{sub_category.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    {% endfor %}
+    
+</div><!--/category-productsr-->
+
+
+   views.py 
+    
+         def get_queryset(self):
+        query = super(ArticleListView, self).get_queryset()
+        
+        category_name = self.kwargs.get('category')
+        if category_name is not None:
+            query = query.filter(selected_categories__url_title__iexact=category_name)
+
+        return query
+
+
+  urls.py 
+
+       path('cat/<str:category>', ArticleListView.as_view(), name='article_by_category_list'),
+
+       
+
+
+
+
+lesson 99
+
+
+  create a class for articledetail and a html file for it, and a url for it 
+
+
+   in this lesson we created the detail page of the article
+
+
+Lesson 100 
+  Display the details of the author of the article on the page and implement the article comment model
+
+
+   in this lesson we created the comment system model but havent used it yet.
+
+     first we wrote a functionaity to seee about the author that wrote the article
+
+      class User(AbstractUser):
+          avatar = models.ImageField(upload_to='images/profile', null=True, blank=True)
+          email_active_code = models.CharField(max_length=130, blank=True)
+          about_user = models.TextField(null=True, blank=True)
+
+       we added the about_user in our models account.
+
+         {% if article.author %}
+                <div class="media commnets">
+                    <a class="pull-right" href="#">
+                        {% if article.author and article.author.avatar %}
+
+                        {% thumbnail article.author.avatar "121x86" quality=95 crop='center' as im %}
+                         <img class="media-object"  src="{{ im.url }}"> 
+                        {% endthumbnail %}
+
+                        {% else %}
+                        <img class="media-object" src="/static/images/blog/Customer.jpg" alt="">
+                    </a>
+                    {% endif %}
+                    <div class="media-body">
+                        <h4 class="media-heading"> نویسنده : {{article.author}} </h4>
+                        <p>
+                            {{article.author.about_user}}
+                        </p>
+                        <div class="blog-socials">
+                            <ul>
+                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                            <a class="btn btn-primary" href="">سایـر مطالب نویسنده</a>
+                        </div>
+                    </div>
+                {% endif %}
+
+                 and then we made these html dynamic about the user
+
+      
+      now after that we went to create the model for our Article Comments
+
+      class ArticleComment(models.Model):
+          article = models.ForeignKey(Article, on_delete=models.CASCADE)
+          parent = models.ForeignKey('ArticleComment', null=True, blank=True, on_delete=models.CASCADE)
+          user = models.ForeignKey(User, on_delete=models.CASCADE)
+          create_date = models.DateTimeField(auto_now_add=True)
+          text = models.TextField()
+
+
+      u may dont understand that much when seeing the models code, but when u head to ur admin panel and check the model from there it will be clear that what each model is for.
+
+
+Lesson 101
+  
+   Displaying the comments in the article detail page 
+
+ 
+        so how did we create the Comment system
+
+        class ArticleComment(models.Model):
+            article = models.ForeignKey(Article, on_delete=models.CASCADE)
+            parent = models.ForeignKey('ArticleComment', null=True, blank=True, on_delete=models.CASCADE)
+            user = models.ForeignKey(User, on_delete=models.CASCADE)
+            create_date = models.DateTimeField(auto_now_add=True)
+            text = models.TextField()
+
+            class Meta: 
+                verbose_name = 'Article Comment'
+                verbose_name_plural = 'Article Comments'
+
+            def __str__(self):
+                return str(self.user)
+
+
+    and then we go out views and write this...
+
+    class ArticleDetailView(DetailView):
+    model = Article
+    template_name = 'Article_Detail.html'
+
+    def get_queryset(self):
+        query = super(ArticleDetailView, self).get_queryset()
+        query = query.filter(is_active=True)
+        return query
+    
+    
+    def get_context_data(self, **kwargs):
+        context = super(ArticleDetailView, self).get_context_data()
+        article: Article = kwargs.get('object')
+        context['comments'] = ArticleComment.objects.filter(article_id=article.id, parent=None).prefetch_related('articlecomment_set')
+
+        return context
+
+
+     we have probably wrote the detail class but i think we just added the get_context_data
+
+
+     ArticleComment.objects.filter(article_id=article.id, parent=None).prefetch_related('articlecomment_set')
+
+       what this code above does is...  and what the hell does the article_id=article.id mean?
+
+        it refers to a field in the ArticleComment model that stores the ID of the associated article.
+         
+          When you write article_id=article.id, youre specifying that you want to filter comments,
+           
+            where the article_id matches the ID of the article object you have
+
+
+         
+
+
+
+
+    i got this weird error which said __str__ returns nin-string (type User)
+
+     when i tried to return my user for admin
+
+      but then thanks for ChatGpt i handle it and i did like this...
+
+
+      Before:    def __str__(self):
+                  return self.user
+
+
+      After:     def __str__(self):
+                   return str(self.user)
+
+
+   search about article_set to ChatGpt its very weird.
+
+
+    what the hell is prefetch_related() ?
+
+       prefetch_related is a method in Django's ORM that allows you to optimize database quieries by reducing the number of database calls 
+       when dealing with related objects.
+
+        lets explain with easy words shall we...
+
+         thanks to my dear ChatGpt
+
+          Imagine you have two models in Django, like Authro and Book, where each book has an author
+            
+            when you query for books, Django automatically fetches their
+             corresponding (similar or equal to something) authors 
+
+              However, if you use prefetch_related, Django will first get all the books and then fetch all the authors
+                in one go,
+                 instead of fetching authors for each book sepreatly.
+
+              
+            This makes thing so much faster because it reduces the number of database quieres needed to get all the
+             related data.
+
+              So prefetch_related is like telling Django to grab all the related stuff in advance to make things quicker
+
+            so this topic had to do with Perfomance
+
+
+
+
+   Lesson 102 
+     Examining the structure of Ajax commands and its use
+
+
+       well yeah in this lesson we used ajax and going to send comments with the ajax
+       structure which i dont really fkn like..thks mr ordokhani
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+    The only reason why people do not have what they want is be-
+cause they are thinking more about what they don't want than
+what they do want
+
+ 
+  some examples:
+            "I don't want to spill something on this outfit."
+                "I want to spill something on this outfit and I want to spill
+                more things."
+
+            "I don't want a bad haircut."
+                "I want bad haircuts."
+
+            "I don't want to be delayed."
+                "I want delays."
+                
+            "I don't want that person to be rude to me."
+                "I want that person and more people to be rude to me."
+
+            "I don't want the restaurant to give away our table."
+                "I want restaurants to give away our tables."
+    
+
+    If you don't understand the law that doesn't mean you should
+reject it. You may not understand electricity, and yet you
+enjoy the benefits of it. I don't know how it works. But I do
+knew this: You can cook a man's dinner with electricity, and
+you can also cook the man!
+   
+   
+The fun is that there are many shortcuts to The Secret, and you get
+to choose the shortcuts that work best for you. Read on, and you'll
+see how.
+
+
+feel trying to control all sixty thousand of those thoughts?
+Fortunately there's an easier way, and it's our feelings. Our
+feelings let us know what we're thinking.
+
+
+just ask yourself, "How am I
+feeling?" You can stop and ask this question often during the day,
+and as you do you will become more aware of how you're feeling.
+
+
+
+102, 103 and 104
+
+
+  so in these lessons we used Ajax to upload comments,
+
+   the reason we did that was because when we use Ajax and whenever we upload or send
+   an comment it will send the comment beautifully without even refreshing
+
+    here is how we did.
+
+    we first created a script src a new custom.js to write our comments there inside
+    our static folders
+
+    <script src="/static/js/custom.js"></script>
+
+
+     and this is what we wrote to for our comments
+
+
+    function sendArticleComment(articleId) {
+    var comment = $('#commentText').val();
+    var parentId = $('#parent_id').val();
+    console.log(parentId);
+    $.get('/article/add-article-comment', {
+        article_comment: comment,
+        article_id: articleId,
+        parent_id: parentId
+    }).then(res => {
+        $('#comments_area').html(res);
+        $('#commentText').val('');
+        $('#parent_id').val('');
+
+        if (parentId !== null && parentId !== '') {
+            document.getElementById('single_comment_box_' + parentId).scrollIntoView({behavior: "smooth"});
+        } else {
+            document.getElementById('comments_area').scrollIntoView({behavior: "smooth"});
+        }
+    });
+}
+
+function fillParentId(parentId) {
+    $('#parent_id').val(parentId);
+    document.getElementById('comment_form').scrollIntoView({behavior: "smooth"});
+}
+
+
+  gosh i hate going through these lessons 
+
+
+
+Lesson 105
+ dynamic the user_panel page
+
+
+   lets get through what we first learned.
+
+    u know in ur navbar whenever u click on a url to get redirected to a page.
+    
+     and u want thhat active color to be stayed on the specific navbar object that u pressed
+
+
+     we use the request.resolver_match.url
+
+       resolver_match is used to check if the resolved view's name is home .
+        If it is, the content inside the {% if %} block will be displayed.
+
+
+        and we use it like this..
+
+
+ class="{% if request.resolver_match.url_name == 'article_page' %}active{% endif %}"
+
+  we created an app for user_panel_module
+  
+    and then after that we created a html for our user_panel page which was easy
+
+    we set the urls for it and the views for it without data just for now
+
+
+    and here is the code for the html page
+
+      {% extends 'Shared/Main_Layout.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-body"></div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <p>This is User Dashboard</p>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+khalas
+
+
+Lesson 106 
+   editing user panel (part 2)
+
+    so lets see this lesson went quite well
+
+   
+    we created view for a component for links to users choices to do smt
+
+    def user_panel_menu_component(request: HttpRequest):
+       return render(request, 'components/user_panel_menu.html')
+ 
+    thats the view
+
+     
+
+     and then we used that as a render partial so that we can use it whenever we want
+
+     with a file user_panel_menu.html
+
+     {% block content %}
+{% load render_partial %}
+
+<div class="container">
+    <div class="row">        
+
+        {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
+
+        <div class="col-md-8">
+            <p>This is User Dashboard</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+ then we created a class for User to Edit the informations
+
+   here is the class view
+
+   class EditUserProfileView(View):
+    def get(self, request:HttpRequest):
+        edit_profile = EditProfileModelForm()
+        context = {
+            'form':edit_profile
+        }
+        return render(request, 'EditProfile.html', context)
+    
+    def post(self, request:HttpRequest):
+        # edit_profile = EditProfileModelForm(request.POST)
+        # context = {
+        #     'form':edit_profile
+        # }
+        return render(request, 'EditProfile.html') 
+
+
+     and this is our EditProfile.html
+
+      
+        {% block content %}
+        {% load render_partial %}
+
+        <div class="container">
+            <div class="row">        
+                {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
+                <div class="col-md-8">
+                    <form action="{% url 'edit_user_profile' %}" method="post">
+                        {% csrf_token %}
+                        {{form}}    
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {% endblock %}
+
+
+
+        so yeah thats about it.
+
+  
+Lesson 107
+  finishing the Edit Profile information
+    
+     what is commit
+
+      commit is an argument used in certain methods of the ORM
+
+      In Django, when you use commit=True it means that any changes you make to the 
+       database are immiediately saved, its like hitting the "save" button right away
+
+
+       if you are commit=False it means that changes are just temporarily stored
+       and wont be saved untill you specifcally tell Django to do so.
+
+
+      And what happens if i dont give the commit argument at all?
+
+       the default is commit=True
+
+         alltså it will save to the database immiediately
+
+
+      the teacher suggested that dont ever put the id of users in ur forms
+       
+       because if u do that and the id will be shown in the page, 
+       
+       and forexample if some users know a bit about programming, can get access to that
+       id user through the terminal and change the id user and do some shit about it.
+
+        thats why use request instead if u want to bring a user (request.user.id)
+
+         so this is basically about the security of our website.
+
+
+    so in this lesson we set a functionality that we can edit our name or lastname adress
+    about us on the edit page.
+
+     
+     we changed our EditUserProfileView like this..
+
+      class EditUserProfileView(View):
+    def get(self, request:HttpRequest):
+        current_user = User.objects.filter(id=request.user.id).first()
+        edit_profile = EditProfileModelForm(instance=current_user)
+        context = {
+            'form':edit_profile
+        }
+        return render(request, 'EditProfile.html', context)
+    
+    def post(self, request:HttpRequest):
+        current_user = User.objects.filter(id=request.user.id).first()
+        edit_profile = EditProfileModelForm(request.POST, request.FILES, instance=current_user)
+        if edit_profile.is_valid():
+            edit_profile.save(commit=True)
+        context = {
+            'form':edit_profile
+        }
+        return render(request, 'EditProfile.html', context) 
+
+   
+    to see the users information on each forms, we wrote a current_user variable
+
+     current_user = User.objects.filter(id=request.user.id).first()
+
+
+  now if we want to change or upload a file or picture from a form we have to write 
+  this in our forms...
+
+
+
+Lesson 108
+
+  so this lesson went quite well tbh.
+
+    we first created the file for our change password page 
+      
+      its just like the EditProfile.html
+
+     
+     then we created the forms four the passwords for the users
+
+    
+
+   Forms.py 
+
+      
+      class ChangePasswordForm(forms.Form):
+
+          current_password = forms.CharField(label='رمز عبور فعلی' ,widget=forms.TextInput(attrs={'class':'form-control'}))
+
+          new_password = forms.CharField(label='رمز عبور جدید',widget=forms.PasswordInput(attrs={'class':'form-control'}) , validators=[validators.MaxLengthValidator(100)])
+
+          confirm_password = forms.CharField(label='تایید رمز عبور',widget=forms.PasswordInput(attrs={'class':'form-control'}) , validators=[validators.MaxLengthValidator(100)])
+
+
+          def clean_confirm_password(self):
+              new_password = self.cleaned_data.get('new_password')
+              confirm_password = self.cleaned_data.get('confirm_password')
+
+              if new_password == confirm_password:
+                  return confirm_password
+              else:
+                  raise ValidationError('رمز عبور مطابقت ندارد')
+
+
+
+        Views.py
+
+        class ChangePasswordView(View):
+    def get(self, request):
+        
+        context = {
+            'password_form':ChangePasswordForm(),
+            'current_user':User
+        }
+        return render(request, 'ChangePassword.html', context)
+    
+    def post(self, request):
+        form = ChangePasswordForm(request.POST)
+
+        if form.is_valid():
+            current_user: User = User.objects.filter(id=request.user.id).first()
+               #this gets the password and compares the password with the current password 
+            if current_user.check_password(form.cleaned_data.get('current_password')):
+                     #this will set the a new password witht what the user has assigned
+                     # on the new_password form
+                current_user.set_password(form.cleaned_data.get('new_password'))
+                current_user.save()
+                logout(request)
+                return redirect('/login')
+            else:
+                form.add_error('new_password', 'رمز عبور اشتباه است')
+                
+
+        context = {
+            'password_form':form
+        }
+        return render(request, 'ChangePassword.html', context)
+
+
+    
+    im really happy that this went well better than i was expected
+
+  
+
+  mr ordokhani mentioned that dont ever use style css inline inside files that are forexample
+
+   AboutUs, ContactUs, HomePage and all that
+
+
+   check_password returns a boolean
+        
+         
+Lesson 109 
+  
+
+
+   the teacher forgot to mention this in one of our code but he did now and we will
+   go through it.
+
+def article_categories_components(request:HttpRequest):
+    article_main_categories = ArticleCategory.objects.prefetch_related('articlecategory_set').filter(is_active=True, parent_id=None)
+
+    context = {
+        'main_categories':article_main_categories
+    }
+
+    return render(request, 'components/article_category_components.html', context)
+
+
+   so that above is our views for article categories right
+
+     that is the right way to write the code for that thing but before we did smt else
+  
+def article_categories_components(request:HttpRequest):
+    article_main_categories = ArticleCategory.objects.filter(is_active=True, parent_id=None)
+
+   we didnt have prefetch_related in that code,
+
+    i mean we still dont have any issue but when we do in that way, whenever we click
+    on the parent articlecategory to see the children it will do another query
+
+     which will take more data and all that
+
+      but with prefetch_related we say to Django to give us the children of that 
+      parent too alltså articlecategory_set
+
+    so we write it like this
+
+def article_categories_components(request:HttpRequest):
+      article_main_categories = ArticleCategory.objects.prefetch_related('articlecategory_set').filter(is_active=True, parent_id=None)
+
+   
+    but we dont need to use prefetch_related if we dont have the parent in the model
+
+
+
+
+  this lesson went really fkn bad my categories wont be shown
+
+
+Lesson 110
+   Displaying the Product Brands
+
+
+  so in this lesson we displayed our brands which went quite well.
+
+   lets check the codes that we used for our project today in this lesson
+
+    btw in our models we added a url_title so dont forget to add that
+
+      class ProductBrand(models.Model):
+          title = models.CharField(max_length=130)
+          url_title = models.CharField(max_length=300, db_index=True, null=True)
+          is_active = models.BooleanField(default=False)
+
+      
+    and inside our views.py we created a function for render_partial a html file 
+    for brands
+
+     def product_brands_component(request:HttpRequest):
+        product_brands = ProductBrand.objects.annotate(products_count=Count('product')).filter(is_active=True)
+        context = {
+            'brands':product_brands
+        }
+        return render(request, 'components/product_brands.html', context)
+    
+
+
+  what does annotate do?
+
+    In Django, the annotate()
+ function is used to add calculated fields to each object in a queryset.
+
+  These calculated fields are not stored in the database but are computed on the fly 
+     when the queryset is evaluted.
+
+      that means that these fields are not physically stored in the database.
+
+       using annotate
+       - Uses less database
+       - Reduced data transfer
+       - Optimize queries
+
+
+      
+    and here is the html file that we rendered brands
+
+
+          <div class="brands_products"><!--brands_products-->
+          <h2>برنـد ها</h2>
+
+      <div class="brands-name">
+          <ul class="nav nav-pills nav-stacked">
+              {% for brand in brands %}
+              <li><a href="{% url 'product-by-brand' brand=brand.url_title %}"> <span class="pull-left">({{ brand.products_count }})</span>{{brand.title}}</a></li>
+              {% endfor %}
+
+          </ul>
+      </div>
+
+      </div><!--/brands_products-->
+
+       
+
+
+Lesson 110
+ Implementation of the price filter (first part)
+
+
+   if u whenever want to see the intellicence of request
+
+    just use request:HttpRequest and it automatically will give u intellicence
+
+     the teacher said smt that made me flattered and relified
+
+      we never dont need to memorize a codes, just that we know what it does is enough
+
+
+Lesson 111
+
+ 
+    i learned smt cute today, that lets say we have a function 
+     
+      def get_context_data
+      and
+      def get_queryset
+
+      now the question is which of the function will be runned first?
+
+       well that is get_queryset 
+
+         u are coming far ahead now dear Idris, hopefully this will give u an oppurtunity
+         to get into the tech industry  
+      
+
+
+
+
+
+  
+lesson 112
+
+  this is going to need some work to do
+
+
+
+Lesson 113
+  creating a dynamic banner
+
+   
+     in this lesson we created our own banner advertisement which was really really easy
+
+
+      we first created the models for it
+
+
+      
+class SiteBanner(models.Model):
+
+    class SiteBannerPositions(models.TextChoices):
+        product_list = 'product_list'
+        product_detail = 'product_detail'
+        about_us = 'about_us'
+
+    title = models.CharField(max_length=200)
+    url = models.URLField(max_length=400, null=True, blank=True)
+    image = models.ImageField(upload_to='images/banners')
+    is_active = models.BooleanField()
+    position = models.CharField(max_length=200, choices=SiteBannerPositions.choices)
+
+
+u know there are times were we as engineers know what is the name of our page and where
+to upload a specific banner
+
+   but what if it was a client or someone that doesn know about code or engineering.
+
+     we introduce the names of the pages to the client to pick where he or she want to have
+     the banner
+
+     
+     we do that with having a child class inside that parent class as u can see above
+
+      now what is model.TextChoices?
+
+       in django models.TextChoices is a way to define a set of choices for a 
+        field in a model where each choice has a human-readable name and machine-readeable
+
+         it provides a more structured and readable way to define choices compared to using
+         tuples or list
+
+    
+    now to use that in our views we wrote like this inside our get_context_data
+
+      context['banners'] = SiteBanner.objects.filter(is_active=True, position__iexact=SiteBanner.SiteBannerPositions.product_list)
+
+
+     and then we just boom used it in our html file which we already know how it goes.
+
+
+     u did good go easy on yourself Idris
+
+Lesson 114
+   Making the home page product slider dynamic (first part)
+
+
+   in this lesson we created a functionaity that displays the latest products in the 
+   home page
+
+
+   this is how we accomplished it
+
+    first we created a function which returns for breaking down datas ( products ) 
+
+      def group_list(custom_list, size=4):
+          grouped_list = []
+          for i in range(0, len(custom_list), size):
+              grouped_list.append(custom_list[i:i + size])
+
+          return grouped_list
+
+   
+    in simple term, this functions breaks down a long list into smaller groups,
+     with each group containing a maximum of size elements(which the default is 4)
+
+      this can be useful for tasks like displaying data inr rows or columns,
+       or for showing products in each sliders
+
+
+    lets explain a bit simplier and with examples
+
+     so image you have a big list of items, like
+
+      [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+
+        and u want to divide it into smaller groups, like groups of 4 items each
+
+          this functions group_list does exactly that
+
+      
+    then we went to our views to use that function
+
+     
+     class HomeView(TemplateView):
+    template_name = 'home_module/Home_page.html'
+
+    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        sliders = Slider.objects.filter(is_active=True)
+        context['sliders'] = sliders
+        latest_products = Product.objects.filter(is_active=True).order_by('-id')[:12]
+        context['latest_products'] = group_list(latest_products)
+        print(group_list(latest_products))
+        return context
+
+
+
+        we added this line of code inside our get_context_data
+
+
+        latest_products = Product.objects.filter(is_active=True).order_by('-id')[:12]
+        context['latest_products'] = group_list(latest_products)
+        print(group_list(latest_products))
+
+      
+        lets break down what this code does 
+
+    latest_products = Product.objects.filter(is_active=True).order_by('-id')[:12]
+
+     -This line fetches the latest active products from the database.
+
+     -It filters the Product objects based on the condition is_active=True,
+     meaning only products that are currently active will be included and displayed
+
+     -It orders the products by their id in descending order (latest first).
+
+     -It limits the queryset to only display the first 12 recent products are fetched
+
+
+    and then after that obs we went to our html file to display it on the page
+
+
+          Home_page.html
+
+                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for group in latest_products %}
+                                <div class="item {% if forloop.first %} active {% endif %}">
+                                    {% for product in group %}
+                                        <div class="col-sm-3">
+                                            <div class="product-image-wrapper">
+                                                <div class="single-products">
+                                                    <div class="productinfo text-center">
+                                                        <img src="{{ product.images.url }}" alt=""/>
+                                                        <h2>{{ product.price }}</h2>
+                                                        <p>{{ product.title }}</p>
+                                                        <a href="#" class="btn btn-default add-to-cart"><i
+                                                                class="fa fa-shopping-cart"></i>افزودن به سبـد خرید</a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+
+
+                            
+  
+Lesson 115
+
+
+  In this lesson we showed our most visited products by the ip of a user. 
+   
+    so lets say a product is viewed by many customers, and to make it get more visitors
+    and probably more sales
+
+     we show it in a specific carousell with the title name "Most Visited Products"
+
+
+    this is how we did it
+
+    first we created a file (http_service.py) inside the utils folder
+
+    in that file we wrote this code
+
+
+  from django.http import HttpRequest
+
+
+def get_client_ip(request:HttpRequest):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+
+    return ip
+
+This Python code defines a function called get_client_ip that takes a
+ request object of type HttpRequest as input. It retrieves the client's IP address
+  from the request object. 
+
+- It first checks if there is a value for 'HTTP_X_FORWARDED_FOR' in the request's META dictionary.
+- If it exists, it splits the value by commas and takes the first part, which represents the client's IP address.
+- If 'HTTP_X_FORWARDED_FOR' doesn't exist, it falls back to 'REMOTE_ADDR' to get the client's IP address.
+- Finally, it returns the client's IP address.
+
+
+  what the hell does this mean 127.0.0.1
+
+    that is the ip of my machine which is unigque and everyone has their own ip
+
+
+
+    then we wrote this inside our productdetails views because there we want to users
+    ip to get accessed
+
+    inside the context_object_name
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        loaded_product = self.object
+        request = self.request
+        favorite_product_id = request.session.get("product_favorites")
+        context['is_favorite'] = favorite_product_id == str(loaded_product.id)
+
+        user_ip = get_client_ip(self.request)
+        user_id = None
+        if self.request.user.is_authenticated:
+            user_id = self.request.user.id
+
+        has_ben_visited = ProductVisit.objects.filter(ip__iexact=user_ip, product_id=loaded_product.id).exists()
+
+        if not has_ben_visited:
+            new_visit = ProductVisit(user_id=user_id, ip=user_ip, product_id=loaded_product.id)
+            new_visit.save()
+
+
+        This code appears to be part of a web application, likely in a view or controller class. Here's a breakdown of what it does:
+
+1. It first gets the client's IP address using the get_client_ip function you provided earlier.
+2. It initializes a variable user_id to None.
+3. If the user associated with the request is authenticated (logged in), it assigns the user's ID to the user_id variable.
+4. It checks if a record exists in the ProductVisit model/table where the IP address matches user_ip (the client's IP address), and the product ID matches loaded_product.id. It sets the result of this check in the variable has_ben_visited.
+5. If the product has not been visited by the user (i.e., has_ben_visited is False`), it creates a new `ProductVisit object with the user's ID (if authenticated), the client's IP address, and the product ID, and then saves it to the database.
+
+In summary, this code is tracking product visits by users, recording their IP addresses along with their user IDs (if authenticated), and storing this information in the database.
+
+
+  after that we went to our views home page to show the most visited products 
+
+    we added this to our home page views 
+
+             most_visited_products = Product.objects.filter(is_active=True).annotate(visit_count=Count('productvisit')).order_by('-visit_count')[:12]
+
+        context['latest_products'] = group_list(latest_products)
+    
+
+
+Lesson 116
+   Display the latest products of each category on the main page
+
+
+   so in this lesson we displayed our category products very beautifully at the end
+     of our page
+
+    and we did it like this...
+
+     we wrote this code in our home page views
+
+        categories = list(ProductCategory.objects.filter(is_active=True)[:6])
+        categories_product = []
+        
+        for category in categories:
+            item = {
+                'id':category.id,
+                'title':category.title,
+                'products': list(category.categories_products.all()[:4  ])
+            }
+            categories_product.append(item)
+        
+        print(category.categories_products.all())
+
+        context['categories_products'] = categories_product
+
+
+      im gonna explain later what this code is with the help of ChatGpt
+
+
+      and then after that we went to our template and displayed it like this...
+
+
+                    <div class="tab-content">
+
+                        {% for categories_product in categories_products %}
+
+
+                        <div class="tab-pane fade {% if forloop.first %} active in {% endif %} " id="Tab_{{categories_product.id}}" >
+
+                            {% for product in categories_product.products %}
+                            
+
+                            <div class="col-sm-3">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            {% thumbnail product.images  '268x265' quality=90 crop='center' as im %}
+                                            <img src="{{ im.url }}" alt=""/>
+                                            {% endthumbnail %}   
+                                            <h2>560.000 ريال</h2>
+                                            <p>توضیحات کوتاه محصول</p>
+                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                        {% endfor %}
+                    
+
+                    </div>
+                </div><!--/category-tab-->
+
+   
+
+Lesson 117
+  Displaying the gallery images in the product detail page
+
+    in this lesson which was so fkn easy we went through how to display galleries
+    in a product detail page 
+
+
+     so we first went to our models and created this...
+
+
+class ProductGallery(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/product-gallery')
+
+
+     nothing new right? alright lets keep going
+
+  
+  then we went in our admin to create some galleries for a product
+
+   and then we went to our views and created the behaviour of the page
+
+
+context['product_galleries'] = group_list(list(ProductGallery.objects.filter(product_id=loaded_product.id).all()), 3)
+
+  but i really have to find out about loaded_product
+   i really dont know what the fiqr that is
+
+
+   and then we went to our template and used it boom nothing more
+
+
+   in the next lesson we will learn how to zoom in the images of our products too see
+   the product more clearly.
+
+   
+
+Lesson 118
+
+ in this lesson we created smt that whenever we click the image of our product in the 
+ details page, it will zoom in beautifully for us, and we used lightbox2
+
+
+                                  {% for group in product_galleries %}
+
+                                <div class="item {% if forloop.first %} active {% endif %} ">
+                                    {% for gallery in group %}
+                                    <a onclick="showLargeImage('{{ gallery.image.url }}')"><img src="{{gallery.image.url}}" width="85" height="85" alt=""></a>
+                                    {% endfor %}
+                                </div>
+
+                                {% endfor %}
+
+
+    we inserted a onclick on our a tag to write a ajax function to zoom in the image for us
+
+    and here is the javascript code
+
+    
+function showLargeImage(imageSrc) {
+    $('#main_image').attr('src', imageSrc);
+}
+
+after that we went and used lightbox2 which was quite frustrating but also an good experience to be more 
+accurate next time
+
+   here is the link for the lightbox2
+
+     https://lokeshdhakar.com/projects/lightbox2/
+
+     dont worry there is description on that page
+
+
+            <h3>
+               <a id="show_large_image_modal" href="{{ product.images.url }}" data-lightbox="product-image">
+                  بزرگنمایـی
+              </a>
+            </h3>
+
+
+        the next step to make all images also galleries to be zoomed out (which was quite frustrating)
+         but thanks to Allah swt the almighty helpt me to solve it, i didnt it was only Allah swt
+
+        
+        we inserted an id id="show_large_image_modal" inside our a tag
+
+         and the function we just added a single line in our previous function LIKE THIS...
+
+         function showLargeImage(imageSrc) {
+              $('#main_image').attr('src', imageSrc);
+              $('#show_large_image_modal').attr('href', imageSrc);
+          }
+      
+       
+         boooom so yeah thats about it.
+
+
+
+    this all took so many hours it looks so simple but it took me fkn 3 hours so yeah, but alhamdulilah
+    thanks for allah for giving the dicipline that i have and the functionality that i have so that i can
+    perform these thigns its just such a blessing and good thing for me. ya allah thankyou so much!!
+
+  
+    
+     in the nest lesson we will do the recommended products in the detail page.
+
+      and after that we will start with add to cart functionaity which will be our last topic of the course
+      alhamdulilah
+
+
+
+Lesson 119
+
+
+  in this lesson we created a functionality to show the related products
+
+  we just added that to the detail page
+
+context['related_products'] = group_list(list(Product.objects.filter(Brand_id=loaded_product.Brand_id).exclude(pk=loaded_product.id).all()[:12]), 3)
+
+
+  remember that we created a group_list right?
+   
+    always remember whenever u want to use that function u have to make the object or the Product model
+    into a list, because group_list doesnt return a queryset it returns a list
+  
+
+      
+exclude
+
+
+
+
+class ProductDetailView(DetailView):
+    template_name = 'product_module/product_detail.html'
+    model = Product
+
+    
+    
+
+
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        # what is the loaded_product? it is the product that got fetched from the model Product
+        loaded_product = self.object
+        request = self.request
+        favorite_product_id = request.session.get("product_favorites")
+        return context
+
+        
+        to fetch a data from a DetailView for example product or user, we use the self.object command
+
+    the teacher suggested that we shouldnt use sessions whenever we want to save an object 
+
+     the data must be low forexample an id or boolean
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lesson 120
+
+in this lesson we created the models for carts
+
+ here are the models
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_paid = models.BooleanField()
+    payment_date = models.DateField(null=True, blank=True)
+
+
+class OrderDetail(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    final_price = models.IntegerField(null=True, blank=True)
+    count = models.IntegerField()
+
+
+   when implementing the feature add to product in our website, we have to create an 
+   behavior that whenever the user clicks on that button
+
+    we have to make sure that the user is logged in or not
+
+     and lets say that the user is logged in and adds that product,
+     if the user has not ever purchased a item before we will create an columns
+     or open a cart for him 
+
+     but what if he as a cart already what we do is just 
+     we just add that product on that card boom
+
+
+<!-- 
+
+
+
+
+
+
+Lesson 121
+
+  alright this lesson went quite well, we implemented a feature with ajax that whenever
+  a user clicks on add to product, we will get the product id and the number count of 
+  what user has submitted,
+  
+   we also implemented a small and views for it which we will work more into it
+
+   here is our custom.js for today
+
+   
+function addProductToOrder(productId) {
+   
+   # this code below is to get what value is the product
+    const productCount = $('#product_count').val();
+
+    $.get('/order/add-to-order?product_id=' + productId + '&count=' + productCount ).then(res => {
+        console.log(res);
+    });
+}
+
+      <label>تعداد :</label>
+        <input type="number" name="product_id" min="1" value="1" 
+        class="search_box" id="product_count">
+        <button onclick="addProductToOrder('{{ product.id }}')" class="btn btn-fefault cart">
+        <i class="fa fa-shopping-cart"></i>
+            ثبت به عنوان کالای محبوب
+            #dont worry i will change the context name of the button
+        </button>
+
+   and here is our views.py
+    
+
+def add_to_product(request:HttpRequest):
+    product_id = request.GET.get('product_id')
+    count = request.GET.get('count')
+    print(f'product id is : {product_id} and count is : {count}')
+
+    if request.user.is_authenticated:
+        product = Product.objects.filter(id=product_id, is_active=True).first()
+        if product is not None:
+            # get current user open order cart
+            # add product to order cart
+            ...
+    else:
+        return JsonResponse({
+            'status':'User is not authenticated'
+        })
+
+
+we will ask dear ChatGpt what all this code does above so that we get extra defined detail
+ In Sha Allah
+
+
+  what is JsonResponse 
+
+
+
+Lesson 121 
+
+  in this lesson we wrote the behavior of the orders and order details in our views
+
+   here is the code 
+
+def add_to_product(request:HttpRequest):
+    product_id = request.GET.get('product_id')
+    count = request.GET.get('count')
+    print(f'product id is : {product_id} and count is : {count}')
+
+    if request.user.is_authenticated:
+        product = Product.objects.filter(id=product_id, is_active=True).first()
+        if product is not None:
+            # get current user open order cart
+            current_order, created = Order.objects.get_or_create(is_paid=False, user_id=request.user.id)
+
+    # now we have to check that does the current product exist in the order detail cart
+            current_order_detail = current_order.orderdetail_set.filter(product_id=product_id).first()
+            if current_order_detail is not None:
+                current_order_detail.count += int(count)
+                current_order_detail.save()
+            else:
+                new_detail = OrderDetail(order_id=current_order.id, product_id=product_id, count=count)
+                new_detail.save()
+
+            return JsonResponse({
+                'status':'success'
+            })
+                
+
+            # add product to order cart
+            ...
+
+        else:
+            return JsonResponse({
+                'status':'mot_found'
+            })   
+    else:
+        return JsonResponse({
+            'status':'User is not authenticated'
+        })
+
+ 
+ and this is the explanation of the code step by step
+
+
+1. Retrieve Product Information:
+     product_id = request.GET.get('product_id')
+   count = request.GET.get('count')
+   print(f'product id is : {product_id} and count is : {count}')
+      This part of the code gets the product ID and count from the GET parameters of the HTTP request.
+
+2. Check User Authentication:
+     if request.user.is_authenticated:
+      It checks if the user is authenticated.
+
+3. Retrieve Product:
+     product = Product.objects.filter(id=product_id, is_active=True).first()
+      If the user is authenticated, it retrieves the product object from the database based on the provided product ID and ensures that the product is active.
+
+4. Retrieve or Create Order:
+     current_order, created = Order.objects.get_or_create(is_paid=False, user_id=request.user.id)
+      It gets or creates an order object for the current user that is not yet paid.
+
+5. Check for Existing Product in Order:
+     current_order_detail = current_order.orderdetail_set.filter(product_id=product_id).first()
+   if current_order_detail is not None:
+       current_order_detail.count += int(count)
+       current_order_detail.save()
+   else:
+       new_detail = OrderDetail(order_id=current_order.id, product_id=product_id, count=count)
+       new_detail.save()
+      It checks if the current product already exists in the user's order details. If it does, it updates the count of the existing order detail. If not, it creates a new order detail for the product.
+
+
+6. Return JSON Response:
+     return JsonResponse({'status': 'success'})
+      It returns a JSON response indicating success.
+
+7. Handling Unauthenticated Users:
+     else:
+       return JsonResponse({'status': 'User is not authenticated'})
+      If the user is not authenticated, it returns a JSON response indicating that the user is not authenticated.
+
+8. Handling Missing Product:
+     else:
+       return JsonResponse({'status': 'mot_found'})
+      If the product is not found or inactive, it returns a JSON response indicating that the product was not found.
+
+9. Error Handling:
+   The code does not handle all possible errors or edge cases, such as invalid input or database errors. These could be added for robustness.
+  
+  what is get_or_create()
+
+
+Lesson 123
+
+   this is quite about security in django and its about the count input on our website
+
+    if someone that is a programmer and is familiar with the programming concepts
+    to check if the website has good security 
+
+     he goes to the inspect section and deletes the value of the input count
+
+      therefore it lets that user to assigns 0 and -1 numbers which is not okey
+
+    we have two ways to solve this problem 
+
+     solution 1:
+
+       we can add this into our views.py in the add_to_product function
+
+        def add_to_product(request:HttpRequest):
+          product_id = int(request.GET.get('product_id'))
+          count = int(request.GET.get('count'))
+          
+          if count < 1:
+              return JsonResponse({
+                  'status':'invalid_count'
+              })
+
+
+     solution 2:
+
+
+        def add_to_product(request:HttpRequest):
+          product_id = int(request.GET.get('product_id'))
+          count = int(request.GET.get('count'))
+          
+          if count = 1
+
+
+
+  so which one is better?  u cant say one of them is better it doesnt really matter
+
+   but the solution 1 is more used by developers  
+
+
+  
+  so in this lesson what we did next was we implemented a feature that whenever the user 
+  submitted a button he will get a notification beautful alert depends on the action
+
+  and we used SweetAlert
+
+   it was actually fun we went to the site and picked the type of notification we wanted.
+
+    and with that we made it dynamic
+
+
+  example:
+
+         if count < 1:
+        return JsonResponse({
+            'status':'invalid_count',
+            'text':'مقدار وارد شده یافت نمیباشد',
+            'icon':'warning',
+            'confirm_button_text': "دیدم میگم",
+
+        })
+
+      inside that JsonResponse we implement the behavior of the count of what it should
+      do and what type of notification (alert) it should display for the user.
+
+
+      we did this to other actions lets seee...
+
+                  return JsonResponse({
+                'status':'success',
+                'text': "محصول با موفقیت به سبد خرید شما اضافه شد",
+                'icon':'success',
+                'confirm_button_text':'مرسیییی'
+                
+            })
+                
+
+            # add product to order cart
+            ...
+
+        else:
+            return JsonResponse({
+                'status':'not_found',
+                'text':'محصول مورد نظر یافت نشد',
+                'confirm_button_text':'مرسیییی',
+                'icon':'error'
+            })   
+    else:
+        return JsonResponse({
+            'status':'User is not authenticated',
+            'text':'برای افزودن محصول به سبد خرید باید وارد سایت شوید, میبخشین دیگه',
+            'confirm_button_text':'ورود به سایت',
+            'icon':'error'
+        })
+
+
+    and here is our javascript ajax code.
+
+
+    function addProductToOrder(productId) {
+    const productCount = $('#product_count').val();
+
+    $.get('/order/add-to-order?product_id=' + productId + '&count=' + productCount ).then(res => {
+        console.log(res);
+            Swal.fire({
+                title: "اعلان",
+                text: res.text,
+                icon: res.icon,
+                showCancelButton: false,
+                confirmButtonText: res.confirm_button_text
+                // cancelButtonText: "No, cancel!",
+                // reverseButtons: true
+              }).then(result => {
+                if (result.isConfirmed) {
+                    window.location.href = '/login'
+                }
+              });
+        }
+  
+    )}
+
+
+    we putted it inside the add_to_product function because thats where we want to use
+     our alert that whenever the user submits the button the user
+      will get a dynamic alert
+
+    for example if the user is not authenticated he will get an alert that he has to 
+    logs in to add that product to the cart (order detail)
+
+
+   we also implemented this feature that if the user submits the button the user will
+   get redirected to the login page.
+
+              }).then(result => {
+                if (result.isConfirmed) {
+                    window.location.href = '/login'
+                }
+              });
+
+        booom thats it
+
+Lesson 124
+
+
+ so in this lesson it went quite well actually, we displayed the products on our cart
+ which went quite beatifully handsomely
+
+  here is the things that we wrote on our views user panel
+
+  def user_basket(request):
+    current_order, created = Order.objects.prefetch_related('orderdetail_set').get_or_create(is_paid=False, user_id=request.user.id)
+    total_ammout = 0
+
+    for order_detail in current_order.orderdetail_set.all():
+        total_ammout += order_detail.product.price * order_detail.count  
+
+    context = {
+        'order':current_order,
+        'sum':total_ammout,
+    } 
+
+
+    return render(request, 'User_Basket.html', context)
+
+    and after that we created a new html file for user basket and extracted the sections
+    there from the template
+
+    if u ever wondered how we displayed objects dynamically just check the User_Basket.html
+    file and u will be ahaaaa
+
+
+      and the sum part we could do ajax but instead i used Django models instead which
+      i find more better and here is what we wrote inside our OrderDetail model
+
+      def get_total_price(self):
+        return self.count * self.product.price
+
+
+    and here are our urls btw
+
+
+    urlpatterns = [
+    path('', UserPanelView.as_view(), name='user_panel'),
+    path('edit-profile', EditUserProfileView.as_view(), name='edit_user_profile'),
+    path('change-pass', ChangePasswordView.as_view(), name='change_password_page'),
+    path('user_basket', user_basket, name='user_basket_page'),
+]
+
+   thats about it
+
+
+Lesson 125
+    
+    so in this lesson which went quite hard if im gonna be honest
+
+     we implemented a feature where we can delete products by ajax (gosh i hate ajax)
+
+     and we did it like this, first we wrote a new function (remove_order_detail)
+
+
+
+     here is it 
+
+     def remove_order_detail(request):
+
+    detail_id = request.GET.get('detail_id')
+    if detail_id is None:
+        return JsonResponse({
+            'status':'not_found_detail_id'
+        })
+        
+    current_order, created = Order.objects.prefetch_related('orderdetail_set').get_or_create(is_paid=False, user_id=request.user.id)
+    detail = current_order.orderdetail_set.filter(id=detail_id).first()
+
+    if detail is None:
+        return JsonResponse({
+            'status':'detail_not_found'
+        })
+    
+    
+    detail.delete()
+
+    current_order, created = Order.objects.prefetch_related('orderdetail_set').get_or_create(is_paid=False, user_id=request.user.id)
+
+   
+    total_ammout = 0
+
+    for order_detail in current_order.orderdetail_set.all():
+        total_ammout += order_detail.product.price * order_detail.count
+
+    context = {
+        'order':current_order,
+        'sum':total_ammout,
+    } 
+
+    
+    # return render(request, 'User_Basket_Content.html', context)
+
+    data = render_to_string('User_Basket_Content.html', context)
+
+    return JsonResponse({
+        'status':'success',
+        'body':data
+    })
+
+
+  and about the url dont worry we created a file for that function and took the two 
+  id sections of the user_basket and extracted it there aswell idk why tbh 
+
+   and then we created the url for it
+
+    path('remove-basket-detail', remove_order_detail, name='remove_order_detail')
+
+
+  i forgot to mention that we also surrouned the two id in a div called
+   
+    <div id="order-detail-content">
+
+
+  and in our ajax custom.js we wrote this function 
+
+    function removeOrderDetail(detailId) {
+    $.get('/User/remove-basket-detail?detail_id=' + detailId).then(res => {
+    $('#order-detail-content').html(res.body)
+});
+}
+
+
+  but unfortunetly because im a bit gay i had to write it inside my html file which is just
+  so bad idk why it doesnt work to do external
+
+   
+   now my question is , 
+
+    what is the difference between 
+
+    this way
+
+    return render(request, 'User_Basket_Content.html', context)
+
+
+    and this way
+
+    data = render_to_string('User_Basket_Content.html', context)
+
+    return JsonResponse({
+        'status':'success',
+        'body':data
+    })
+
+  when using the first solution it does work but i have to reload the page
+   to make it deleted
+
+
+
+    we wrote the other solution because that made our products just disseaper whenever
+    we cliked on delete its just doesnt make sense to me,
+
+     im gonna ask my friend ChatGpt about it 
+
+  
+
+
+   i learned smt really intressting in django a few minutes ago that i was so confused about.
+
+    In Django when we define a ForeignKey relationship from one model to another, Django automatically
+      creates a reverse relation on the Order model, which allows you to access related OrderDetail instances 
+      using the name orderdetail_set
+
+
+    i was wondering about why in our views code we have this
+     
+      current_order, created = Order.objects. bla bla bla
+
+       what the hell does , created mean 
+
+    In Django when we use the get_or_create() method on a queryset, it return a tuple containing two elements
+
+     1: The first element is the object retrieved from the database or created if it didnt exist
+
+     2: The second element indicates whether the object was created or not.  its a boolean value
+
+
+Lesson 126
+
+  in this lesson we edited the views.py and made it cleaner
+
+    we edited it like this 
+
+
+
+    def remove_order_detail(request):
+
+    detail_id = request.GET.get('detail_id')
+    if detail_id is None:
+        return JsonResponse({
+            'status':'not_found_detail_id'
+        })
+        
+    current_order, created = Order.objects.prefetch_related('orderdetail_set').get_or_create(is_paid=False, user_id=request.user.id)
+    detail = current_order.orderdetail_set.filter(id=detail_id).first()
+      
+    # deleted_count, deleted_dict = OrderDetail.objects.filter(id=detail_id, order__is_paid=False ,order__user_id=request.user.id).delete()
+
+    if detail == 0:
+        return JsonResponse({
+            'status':'detail_not_found'
+        })
+    
+    
+    # detail.delete()
+
+    current_order, created = Order.objects.prefetch_related('orderdetail_set').get_or_create(is_paid=False, user_id=request.user.id)
+
+
+    total_ammount = current_order.calculate_total_price()
+   
+
+    context = {
+        'order':current_order,
+        'sum':total_ammount,
+    } 
+
+    
+    # return render(request, 'User_Basket_Content.html', context)
+
+
+    return JsonResponse({
+        'status':'success',
+        'body':render_to_string('User_Basket_Content.html', context)
+    })
+
+
+
+
+  and also in the html file we did a way that if there are not products in the cart it will just say
+  no products were added to the cart  
+
+
+
+
+Lesson 127
+  changing the count of the products in the cart
+
+   
+   the reason why we set the is_paid=False is because if we dont have it in our
+   function, django will return the paid product aswell to the user and that is
+   not smt that a user wants to see
+
+
+   in this lesson we created a functionality in ajax to increase or change the counter
+
+    we did it like this...
+
+    here is our ajax function
+
+  
+  function changeOrderDetailCount(detailId, state) {
+    $.get('/user/change-order-detail?detail_id=' + detailId + '&state=' + state).then(res => {
+        if (res.status === 'success') {
+            $('#order-detail-content').html(res.body);
+        }
+    });
+}
+ 
+   the url that we defined in the function is the url for the views
+
+   here are the views
+
+
+
+def change_order_detail_count(request: HttpRequest):
+    detail_id = request.GET.get('detail_id')
+    state = request.GET.get('state')
+    if detail_id is None or state is None:
+        return JsonResponse({
+            'status': 'not_found_detail_or_state'
+        })
+
+    order_detail = OrderDetail.objects.filter(id=detail_id, order__user_id=request.user.id, order__is_paid=False).first()
+
+    if order_detail is None:
+        return JsonResponse({
+            'status': 'detail_not_found'
+        })
+
+    if state == 'increase':
+        order_detail.count += 1
+        order_detail.save()
+    elif state == 'decrease':
+        if order_detail.count == 1:
+            order_detail.delete()
+        else:
+            order_detail.count -= 1
+            order_detail.save()
+    else:
+        return JsonResponse({
+            'status': 'state_invalid'
+        })
+
+    current_order, created = Order.objects.prefetch_related('orderdetail_set').get_or_create(is_paid=False, user_id=request.user.id)
+    total_amount = current_order.calculate_total_price()
+
+    context = {
+        'order': current_order,
+        'sum': total_amount
+    }
+    return JsonResponse({
+        'status': 'success',
+        'body': render_to_string('User_Basket_Content.html', context)
+    })
+
+
+
+
+and this is what we did in our html file   
+
+    <td class="cart_quantity">
+       <div class="cart_quantity_button">
+          <a class="cart_quantity_up" onclick="changeOrderDetailCount({{ detail.id }}, 'increase')"> + </a>
+          <input class="cart_quantity_input" type="text" name="quantity"
+          value="{{ detail.count }}"
+          autocomplete="off" size="2">
+          <a class="cart_quantity_down" onclick="changeOrderDetailCount({{ detail.id }}, 'decrease')"> - </a>
+      </div>
+    </td>
+
+
+    in this lesson it went quite well actually except that i have to refresh each time
+    to make the changes, im thinking about using this functionality with only
+    django instead In Sha Allah
+
+
+  
+Lesson 128
+
+  so in this lesson it went amazing actually
+
+    lets say user wants to use our web application but isnt logged in
+     
+     and ofc we dont want the user to have access to the pages 
+     that requires authenticated users
+
+     but unfortunetly if someone does know a bit about programming, the programmer
+     will easily just write and change the urls and play with it and it will redirect
+     the user to a specific pages that actually requires authentications
+
+
+  But thanks to the Django Framework, it has provided a great amazing feature where we
+  can stop this thing for the users to access.
+
+
+   we do it with login_required decorators  
+
+    what the hell is that?
+      
+      lets explain deeply with the help of Copilot
+
+      In Django, login_required is a decorator that restricts access to a view to 
+      authenticated users only.  if a user who is not logged in tries to access a view
+      protected by login_required, Django will automatically redirect the user to the 
+      login page
+
+
+  we used it like this inside one of our function views
+
+
+    @login_required
+    def user_panel_menu_component(request: HttpRequest):
+
+        return render(request, 'components/user_panel_menu.html')
+
+ 
+   some usually use a paranthes to give the exact login_url='login_page'
+
+     but it just doesnt feel right to do that way in each views
+
+      instead we just write in the settings.py that what url we exactly want the user
+      to be redirected to.
+
+       and we do it exactly like this
+
+      LOGIN_URL = '/login'    
+
+
+   we just add that thing inside our settings and boom
+
+
+    but how to use the login_required inside Class Based View
+
+
+   we use it like this 
+
+    @method_decorator(login_required, name='dispatch')
+    class UserPanelView(TemplateView):
+        model = User
+        template_name = 'UserPanel.html'
+
+     the login_required in the paranthes we already know what it does,
+
+      but what about the name='dispatch'
+
+       the dispatch is specifying that the login_required decorator should be 
+       applied to the dispatch method of the class-based-view.
+
+        This is a way to ensure that the user is logged in for all types of requests.
+        (GET, POST, etc) handles by the view
+
+         If you wanted to apply the decorator to a different method, 
+         you would replace 'dispatch' with the name of that method. For example,
+         @method_decorator(login_required, name='get') would apply the decorator to
+         the get method.
+
+
+    but stop there buddy, there is also another way to use the login_required in the Class
+
+    and its like this...
+
+      class UserPanelView(LoginRequiredMixin, TemplateView):
+          model = User
+          template_name = 'UserPanel.html'
+
+
+      so tell me whats the gawdam difference hajji?
+
+The choice between using @method_decorator(login_required, name='dispatch') 
+and LoginRequiredMixin depends on your specific needs and the structure of 
+your Django project.
+
+    If you want to apply the login_required decorator to specific methods in your view,
+     then using @method_decorator(login_required, name='dispatch') is a good choice.
+      It provides you with more granular control over which methods require a 
+      user to be logged in.
+
+    On the other hand, if you want to ensure that a user is logged in for all 
+    methods of a class-based view, then LoginRequiredMixin is a better choice.
+    It’s a more concise way to apply the login_required decorator to all
+     methods of a class.
+
+So, neither method is inherently “better” than the other. It’s about choosing the right tool for your specific use case. Both are correct and widely used in Django development.
+
+
+
+Lesson 129
+
+   in this lesson we created part 1 of the zarinpal payment 
+
+    we went on the site and used two sample of codes and extract it on our order view section
+
+we added two functions in the view and some other codes      
+
+ from django.conf import settings
+import requests
+import json
+
+
+#? sandbox merchant 
+if settings.SANDBOX:
+    sandbox = 'sandbox'
+else:
+    sandbox = 'www'
+
+
+ZP_API_REQUEST = f"https://{sandbox}.zarinpal.com/pg/rest/WebGate/PaymentRequest.json"
+ZP_API_VERIFY = f"https://{sandbox}.zarinpal.com/pg/rest/WebGate/PaymentVerification.json"
+ZP_API_STARTPAY = f"https://{sandbox}.zarinpal.com/pg/StartPay/"
+
+
+amount = 1000  # Rial / Required
+description = "توضیحات مربوط به تراکنش را در این قسمت وارد کنید"  # Required
+phone = 'YOUR_PHONE_NUMBER'  # Optional
+# Important: need to edit for realy server.
+
+#this below is the url of our site that we want to redirect if the user got verified
+ ...i think, i will check more into that later
+CallbackURL = 'http://127.0.0.1:8080/order/verify-/'
+
+
+def send_request_payment(request):
+    data = {
+        "MerchantID": settings.MERCHANT,
+        "Amount": amount,
+        "Description": description,
+        "Phone": phone,
+        "CallbackURL": CallbackURL,
+    }
+    data = json.dumps(data)
+    # set content length by data
+    headers = {'content-type': 'application/json', 'content-length': str(len(data)) }
+    try:
+        response = requests.post(ZP_API_REQUEST, data=data,headers=headers, timeout=10)
+
+        if response.status_code == 200:
+            response = response.json()
+            if response['Status'] == 100:
+                return {'status': True, 'url': ZP_API_STARTPAY + str(response['Authority']), 'authority': response['Authority']}
+            else:
+                return {'status': False, 'code': str(response['Status'])}
+        return response
+    
+    except requests.exceptions.Timeout:
+        return {'status': False, 'code': 'timeout'}
+    except requests.exceptions.ConnectionError:
+        return {'status': False, 'code': 'connection error'}
+
+
+def verify_payment(authority):
+    data = {
+        "MerchantID": settings.MERCHANT,
+        "Amount": amount,
+        "Authority": authority,
+    }
+    data = json.dumps(data)
+    # set content length by data
+    headers = {'content-type': 'application/json', 'content-length': str(len(data)) }
+    response = requests.post(ZP_API_VERIFY, data=data,headers=headers)
+
+    if response.status_code == 200:
+        response = response.json()
+        if response['Status'] == 100:
+            return {'status': True, 'RefID': response['RefID']}
+        else:
+            return {'status': False, 'code': str(response['Status'])}
+    return response
+
+
+
+
+
+   and we added this to our order module urls 
+
+    path('request/', send_request_payment, name='request'),
+    path('verify/', verify_payment, name='verify'),
+
+
+
+Lesson 130
+
+   so apparently it doesnt work that well for us because we need a merchant id
+    
+         eehhh it seems very frustrating but insha Allah it will go well.
+
+    so we are gonna skip some lessons that is related to the zarinpal gateway
+    because we dont have the possibility
+
+     therefore we just skip some lessons and come back when we will get a merchant id
+       IN SHA ALLAH 
+
+
+
+
+Lesson 131
+
+ So long time no see.. i have ben feeling quite lost and sad about the future and the merchant id
+
+   but we are going to skip that part for a while and focus most of the part in the website
+    which is going already really well for us.
+
+  in this lesson we displyed bought products for the user 
+
+
+    here is the template  
+
+
+                <li class="list-group-item">
+                    <a href="{% url 'user_bought_product_page' %}">لیست خریدهای قبلی</a>
+                </li>
+            </ul>
+
+
+     
+     {% extends 'Shared/Main_Layout.html' %}
+{% load render_partial %}
+{% load thumbnail %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">   
+        <div class="col-md-4">     
+        {% if current_user.avatar %}
+
+        {% thumbnail current_user.avatar "862x398" quality=100 crop='center' as im %}
+        <a class="thumbnail">
+            <img src="{{ im.url }}" alt="...">
+        </a>
+        {% endthumbnail %}
+        
+        {% endif %}
+        {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
+        </div>
+        <div class="col-md-8">
+            <table class="table table-responsive table-hover table-striped">
+                <tr>
+                    <th class="text-right">شناسه</th>
+                    <th class="text-right">تاریخ تایید فاکتور</th>
+                    <th class="text-right">قیمت نهایی خرید</th>
+                </tr>
+
+                {% for order in object_list %}
+
+                <td class="text-right"> {{order.id}} </td>
+                <td class="text-right"> {{order.payment}} </td>
+                <td class="text-right"> {{ order }} </td>
+
+                {% endfor %}
+
+                <td class="text-right">
+                    <a href="" class="btn btn-success">جزیات</a>
+                </td>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+here is the view for that feature 
+
+@method_decorator(login_required, name='dispatch')
+class UsersProducts(ListView):
+    model = Order
+    template_name = 'user_bought_products.html'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        request = self.request
+        queryset = queryset.filter(user_id=request.user.id, is_paid=True)
+
+        return queryset
+
+
+
+urls 
+ 
+  path('my-products/', UsersProducts.as_view(), name='user_bought_product_page'),
+
+
+
+
+lesson 132
+
+ 
+   in this lesson we displayed the detail of our bought products 
+    
+     
+     
+
+
+
+
+
+
+Lesson 133
+
+  In this lesson we displayed our most bought products in the home page which went
+    extremly well tbh!!
+
+     
+      
+    here is the code for this lesson 
+
+     
+      views.py 
+
+       we wrote this in our HomeView class
+
+    most_bought_products = Product.objects.filter(orderdetail__order__is_paid=True).annotate(order_count=Sum(
+        'orderdetail__count'
+    )).order_by('-order_count')[:12]
+
+    context['most_bought_products'] = group_list(most_bought_products)
+
+
+
+   Home_page.html
+
+
+     its alot of html code go check it out yourself
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lesson 134
+
+  in this lesson we are going to use a template for our admin yohoo
+
+   
+
+Lesson 135
+
+   whats UpdateView?
+
+    what is the difference between reverse and reverse_lazy?
+    
+
+
+  this is the email to be sent to the company
+
+  با سلام و احترام
+
+  ادریس احمدی هستم امیدوارم حال شما خوب باشد. اخیراً به فرصت کارآموزی توسعه وب در فراوین در وب‌سایت جاب‌ویژن برخورد کردم و خوشحالم که علاقه‌ام را به این موقعیت بیان کنم. پایان دادن به یک دوره یکپارچه پایتون شور و اشتیاق من به توسعه وب را، به‌ویژه
+جنگو، روشن کرده است. من خوشحالم که بتوانم به تیم شما کمک کنم و مهارت‌هایم را در یک محیط حرفه‌ای بیشتر ارتقا دهم. رزومه‌ام را برای بررسی پیوست کرده‌ام که تجربیات و صلاحیت‌هایم را شرح می‌دهد. من اعتماد به نفس دارم که به سرعت یادگیری خواهم کرد و به چالش‌های جدید سریع واکنش خواهم داد، که مرا به افزودن ارزش به تیم شما تبدیل می‌کند. خوشحال می‌شوم اگر فرصتی برای بحث در مورد اینکه چگونه تجربیات من با نیازهای تیم شما همخوانی دارد، به دست بیاید. از بررسی درخواست من سپاسگزارم. من برای یک گفتگو در اولین فرصتی که برای شما مناسب است، در دسترس هستم. با آرزوی موفقیت
+    
+     
+  
+  so in these two lesson we learned how to use a template for admin which wasnt that easy
+   idk why u have to write alot of code but in sha allah it will go well if god wants
+
+
+
+Lesson 136
+    In this lesson it went well and we used decorators 
+
+  so lets say we arent logged in and arent superuser. but still somehow we can get
+  access to our admin with just changing the url, and that is not that great
+
+   and for that we used decorators
+
+
+   this is the code that we wrote to see if the user is authenticated and is super user
+    (a user who can enter admin panel)
+
+ 
+ 
+ def permission_checker_decorator_factory(data):
+
+    def permission_checker_decorator(func):
+
+        def wrapper(request, *args, **kwargs):
+            print(data)
+            if request.user.is_authenticated and request.user.is_superuser:
+                return func(request, *args, **kwargs)
+            else:
+                return redirect(reverse('login_page'))
+        
+        return wrapper
+    return permission_checker_decorator
+
+
+    while the def permission_checker_decorator_factory is not a must its just if we want
+    to use data for our decorators so its not that neccessary 
+
+     and to use it to each function or class to let it know that user has to be authenticated
+     or else be redirected to login page so wrote we this for each class or function
+
+
+
+@permission_checker_decorator_factory('This is my data for main admin page')
+def Index(request):
+    return render(request, 'home/index.html')
+  k,o
+
+
+
+this is without the data implentation method that we smt dont need to use 
+
+
+
+    def permission_checker_decorator(func):
+
+        def wrapper(request, *args, **kwargs):
+            print(data)
+            if request.user.is_authenticated and request.user.is_superuser:
+                return func(request, *args, **kwargs)
+            else:
+                return redirect(reverse('login_page'))
+        
+        return wrapper
+
+
+and this is how we use 
+
+@permission_checker_decorator
+def Index(request):
+    return render(request, 'home/index.html')
+  k,o
+
+
+
+btw for classes we use like this 
+
+ 
+@method_decorator(permission_checker_decorator, name='dispatch')
+class ArticleListView(ListView):
+    model = Article
+    template_name  = 'articles/articles_list.html'
+    paginate_by = 5
+
+      
+
+
+
+
+
+
+
+
+
+Neville recommends at the end of every
+day, before you go to sleep, to think through the events of the
+day. If any events or moments did not go the way you wanted,
+replay them in your mind in a way that thrills you. As you re-
+create those events in your mind exactly as you want, you are
+cleaning up your frequency from the day and you are emitting a
+new signal and frequency for tomorrow. You have intentionally
+created new pictures for your future. It is never too late to change
+the pictures.
+
+
+
+
+
+
+
+
+

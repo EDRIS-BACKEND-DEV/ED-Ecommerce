@@ -1,0 +1,22 @@
+{% extends 'Shared/Main_Layout.html' %}
+
+{% load render_partial %}
+
+{% load thumbnail %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">        
+        <div class="col-md-4">     
+
+
+            {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
+        </div>
+        <div class="col-md-8">
+            <p>This is User Dashboard</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

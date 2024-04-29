@@ -1,0 +1,571 @@
+
+
+
+Lesson 10
+ Checking the type of parameter sent to url
+
+ in the urls, when we give the url a parameter.
+
+ we can give it a specific type, for example Int or str
+
+ for example we want the user to write numbers in the url, 
+ but sometimes we want the user to write strings or names in the url.
+
+ so thats why we give it a specific parameter type.
+
+ and we do it like this...
+
+        path('<int:day>', dynamic_day_int),
+        path('<str:day>', dynamic_day)
+
+
+
+Lesson 11
+
+
+  when u include an url and change the url name this is called ur prefix
+
+  reverse() function
+    what the reverse function does is that the address that u gave to ur url, it will take
+    that address and return it for u, in another words it will reverse it for u.
+
+    but it has some more features.
+
+
+Lesson 12
+   showing a list with html codes in view httpresponse
+
+   in this lesson the teacher show us one way of writing html codes inside our function,
+
+    which tbh was really disgusting, but in the next lesson we will dive into the real 
+    template shit.
+
+
+Lesson 13
+   template
+
+   in this lesson we created a folder with an html file and showed it to the browser,
+   the next lesson we will go trhough render.
+
+
+Lesson 14
+  Render
+
+  its good to know that when u create some html files, espeically in big projects its very 
+  important to keep the html files in a unique folder,
+
+  because if we dont do that then for example if we want to render some html files template. and maybe we have different html files with the same name, that will occur an error.
+         Django will be confused whcih of the files should he returned.
+
+  so its important to store each speficic file in a specific own folder.
+
+  but its not obligatory.
+
+
+  what is a render_to_string()?
+
+  render_to_string() loads a template like get_template() and calls its render() method 
+  immediately
+
+  what is the difference between render and render_to_string?
+   ...
+
+
+
+  when u write in ur html file something for example names and titles and blogs with 
+  paragraphs and show it to the browser, that is static website, not a dynamic
+
+  but to make it dynamic we use something called context isnide our render function.
+
+  we use context and it has to be a dictionary, and with those values inside our context
+  we have datas and with those datas we can use them in our html file.
+
+  to make our website dynamic we use context and to use context inside our html file we use
+  DTL, Django Template Language
+
+  what is Django template Language?
+
+  its a powerful and flexible language that allows you to create dynamic web pages using HTML templates
+
+  what is the purpose of Django Template Language?
+  
+  its for to handle datas to be used dynamically, but thats one of the features of
+   Django Template Language, such as for loop and if or else.
+
+    and we use it like this inside our html file for example if we want to use any data...
+
+    {{ example_data }}
+
+
+Lesson 15
+  Django Template Filter
+
+
+ in ur website, there will be moments where u want to for example capitilize or upper 
+ or lower a specific word or sentence.
+
+ Well ur at the right place, because Django has provided a feature for that but inside ur
+ html file, and its called Django template Filter.
+
+ there are lots of filters in django but keep in mind to always look into them and search
+ about them.
+
+
+  seems like i dont have internet, but my internet in sha allah got connected,
+  go to your extensions in visual studio code and donwload that snippet beautful thing
+  and copy that line of code and paste it isndie ur settings.json file below.
+
+  what this will do is it will make ur intellicence so much better in django so that u can see what code to write.
+
+
+Lesson 16
+  Template Tags
+
+  in this lesson we learned about tags, python codes that we can use in our html file
+  which we are already familiar with.
+
+
+
+Lesson 17
+  Template Url
+
+  in this lesson we learned a tag that we can use for our url like this...
+
+  {% url '' %}
+
+  in companies when they do a big project they always name their urls,
+   but its not obligatory.
+
+  
+ 
+Lesson 18 
+  Django Template if tag
+
+  in this lesson we learned about django template if tag which i already know the rules
+  and the concepts so it was not that hard.
+
+
+Lesson 19 
+ Extends Django Template
+
+   now we already are familiar with this beautiful concept, which really helps us so much
+   clean better code
+
+   we have a main html layout where we write code that contains header and footer
+   and then we extend that file from another html files, instead of always writing the
+   same header and footer again and again.
+
+   but what should we name that specific base file?
+    
+    Mr Ordokhani mentioned that among Django developer, when they have a base file. 
+      they name it 'base.html' or 'main.html' or 'master.html', or 'layout.html' or '_MainLayout.html'
+        
+
+    Dont forget to inside the base.html or whatever u name it.
+       the title tag should be dynamic
+
+       because we want different title names for each file
+
+
+
+Lesson 20
+   Django Include Tag
+
+   the include tag what it does is whenevr u use include tag it will include or bring 
+   a html file and put it where u writed the include tag  
+
+   include tag loads a template and renders it with the current context.
+
+   u can also include data.
+
+    {% include 'challenges/includes/Header.html' with active_page='Days List' %}
+
+
+Lesson 21
+   Not Found(404)
+
+   when u want to raise Http404 Django will automatically go to the templates and find
+   a file with the name 404 to return it in ur website.
+
+     so remember if u want to have ur own 404 page with ur own template. 
+         u have to name that html file to 404.html
+
+         u can even go the some settings and change the http404 name so that django
+         goes and look for the file that u want to look for, for example error.html
+
+         but like Mr Ordokhani said, its better to not change any settings for 404.
+
+
+
+Lesson 22
+   Using static files (Css, js, etc. files) in the project
+
+    When we create a project or a website with django, there or two choices.
+
+    one of them is that we use a template, and with that reason we dont need to be worried
+    about the css and js sliders images all that files and etc.
+
+    they all will be in a folder providing for us the features whenever we need it.
+
+    
+  but there is another too, what if u dont want to use a template.
+  u want to use ur own css and js and all customization shit.
+
+    u cant just take those css js and etc folders to use it on ur own project, 
+           that shit is jsut messed up.
+
+      instead what we do is that we create a static folder
+
+
+
+Lesson 23
+   Static file settings in global mode
+
+
+   in our django project we created a folder 'static' and created a styles.css file inside
+   that folder.
+
+   and maybe gave some css style for our website just for testing.
+
+     then after that we went to that html file were we wanted to our css to work at.
+
+     so we used it like this...
+          <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+          and we alredy know what that is hihi
+
+    but thats not enough, to make it work we have to let Django know where should he 
+    look for our static folder to publish that css.
+     
+     and that is really easy.
+
+     we went to our settings.py and writed some code...
+
+      STATICFILES_DIRS = [
+        BASE_DIR / "static"
+      ]
+
+         what this do is taht it tells django to go look for this folder.
+
+
+
+Lesson 24
+   Styling for the project
+
+   in this lesson we styled our Days of Week project, and it went quite well,
+   but not at the end because idk why my css wont work after some couple of days.
+
+      anyways mr Ordokhani mentioned in the end that this is not how developers especially
+      back end developer write css, they either buy a template or get a template from a 
+      front end developer.
+
+
+Lesson 25
+   Review PyCharm software and create a new project
+
+
+Lesson 26
+  The Blog Project
+   the adress urls
+
+    in this lesson we didnt do that much, we just created our Blog project and gave it
+    some urls
+
+
+Lesson 27
+  
+
+  this lesson went very well i can say, we created the html files for our project,
+  in the next lesson we will style our website in sha allah.
+
+
+
+Lesson 28 
+  Loading the image in the project and styling the main page
+
+  
+
+Lesson 29
+  Post list page
+
+  in this lesson we created our all-posts.html for all the blogs or posts that we have
+
+  it went quite well nothing new tbh everything goes well alhamdulilah,
+  in sha allah may allah help me to become a successfull backend developer.
+
+
+
+Lesson 30 
+   Show post details
+
+   in this lesson we created our Detail Page
+
+
+Lesson 31
+  Using dynamic data
+
+   in this lesson we made our Blog website dynamic but not fully real dynamic,
+
+Lesson 32
+  Dynamic post list and post details
+
+   in this lessson we made our details html file dynamic a bit.
+     in the next lesson i think we will do fully dynamic and use databases in sha allah.
+
+
+Lesson 33
+  Examining the database and its main structure
+
+   in django, there are two ways of using databases. temporary database and 
+   semipersistent data
+
+   a temporary databse is for example a user sees a form and fills in that forms, 
+    after that the data dissapears and gets stored in a memory.
+
+    or let me give u a better example.
+     
+     all_posts = [
+    {
+        'slug': 'learning-django',
+        'title': 'django course',
+        'author': 'Idris Ahmady',
+        'image': 'django.png',
+        'date': date(2021, 4, 5),
+        'short_description': 'this is django course in toplearn from zero to hero',
+        'content': """
+
+    }]
+
+    this is a temporary data, because we write these things and used it for our user
+    and then they are gone, they are not stored in a database.
+
+     they are stored in such as admin if i am right.
+
+     later on we will learn about SQL and how to use it, mr ordokhani mentioned that for 
+     big projects they usually dont use django database, they usually use SQL
+     because they are more professional, 
+
+     but tbh its still okej to use django database, its not a big deal.
+
+     and if we use sql we have to know that specific programming language to interact
+     with database, which is not that big deal.
+
+     but there is smt that u should know, there is something called ORM
+     Object Relational Mapping
+
+     what this is is that in django and in any other frameworks, they provide a feature for
+     us to write python or any other language related to that framework, ot interact and
+     communicate with the database.
+
+     ...but there is a limit, u cant to it in big projects
+
+
+
+Lesson 34
+  A basic review of Models in Django
+
+  in this lesson we dived into models.
+
+  remember that when u create a model class and give it a type for exmaple name
+
+  when u use models.CharField()
+
+    u have to use max_length
+
+  when u use models.Model to reference models to ur class, it will directly give u an
+  primary key (id) for ur 'products' for example
+
+
+Lesson 35
+ Creating a database and checking Migration and its commands
+
+ in models whenever u change a field model or add u have to let the database know 
+ by the changes u have made, u have to send it to the database too
+
+ coding has its own language and structure and database has its own structure,
+ if i want to attach these two togehters with python to change what happened in our fielnds
+ we have to interact with the database,
+  
+       this is an example of ORM (object oriented relation)
+
+
+       when u write python manage.py u will get all the commands to use 
+       with python manage.py
+
+
+    what is the purpose of makemigrations and migrate?
+
+    whenever u change somethings in ur models u write makemigrations to identify the changes that u have made
+
+    and after that u write migrate to store or save or transfer those changes in ur database.
+
+    the defintion of migrate is...move from one part of something to another.
+      whic really makes sense.
+
+
+when u have done makemigration ur models or migrating dont u dare go touch that
+initial 0001 bla bla file, that one file u should not touch or change anything.
+
+
+
+Lesson 36
+  Work with data and database
+
+   in this lesson mr ordokhani teached us about shell and get information or
+   add information to our database and see it from our terminal,
+
+      but unfortunetly that didnt work for me.
+
+    what is shell?
+
+      The Django shell is a Python Environment that allows u to interact with ur
+      Django Projects Databases
+
+
+Lesson 37
+  Examining the stages of changing the model 
+  and the necessity of migration
+
+
+  in the models the method that is used alot is the string method
+
+  def __str__()
+    return bla bla bla
+
+    what this method do is that it introduces the instance of that Class names.
+
+    for example u write a class which is a product and inside that class u have product name
+
+    when u want to see ur products in the database u dont want them to be like an object
+    or numeric, 
+       instead we use that str method and give it a value what it should return for us
+       and it will instead show us the name of the Product.
+
+
+      What is Validators?
+
+       They are a simple way to customize a field, for example put a limit and raise
+       a warning or error.
+
+
+Lesson 38
+  Examining how to insert, update
+  and delete in the database in Django
+
+  remember that when u use shell in ur terminal, whenever u write some command for example
+  adding new item or deleting smt, if u want it to get saved or stored in the database
+  u have to make sure that u use save method.
+
+
+  lets say u want to drag a product with shell like this 
+  Product.Object.all()[0]
+
+    i mean like if u do it like that like eehh its a bit gay man.
+
+    instead when u want to drag a specific object from ur query or smt just use 
+    the filter method.
+
+
+Lesson 39 
+  Checking the filter and get commands
+
+
+    the filter method is used to filter your search. and allows u to return only the
+    rows that matches the the objects that u searched for
+
+    so what is the diffreence between get and fitler method in django?
+
+      so basically when u want a single item just use get()
+
+      but when u want to get many objects that have the same name, then use filter.
+          for example if u want to search an items use filter.
+
+
+    if u use the get method on a object where there is more than one, u will get an error.
+
+    but if u filter an object which does not exist u will get an empy query set list
+    <Queryset []>
+
+    
+    when u want objects that for example the price is lower then 4 u write
+       Product.Objects.filter(prices__lt=4) #less then
+
+       if u want to greater than...Product.Objects.filter(prices__gt=4)
+
+       of if u want to do greater than or equal do...
+       Product.Objects.filter(prices__gte=4)
+
+
+       contains is more case sensitive objects.
+       while icontains does not care about it.
+
+
+    there will be times when u forexample want to use OR to get some of ur objects
+    from the database or query, like forexample
+    the active is true or | the rating==gt=4
+
+    in those situations we use the Q object,
+
+      and what the hell is that Q thing?
+       
+       Q is a object that takes sqls queries and make logical expressions to take or
+       encapsulate data from the database or query.
+
+       u can take advanced query with the help of Q
+
+       and its used like this...
+
+       from django.db.models import Q
+
+       Product.objects.filter(Q(is_active=True | ratings__gt4))
+
+        u can aslo use and ,
+
+       Product.objects.filter(Q(is_active=True | ratings__gt4), blabla)
+
+       keep in mind that u should have ur and after the Q, not before otherwise
+       u will get an SyntaxError: positional argument follows keyword argument
+
+
+    now here is the intresting part 
+
+    when u forexample write this line of code
+
+       active_products = Product.objects.filter(Q(is_active=True | ratings__gt4))
+
+      do u really get the data from the real database when u do this?
+
+      because the whole data is stored in another place called query if im right,
+
+      but to get the data from the real database u do like this...
+
+      print(active_products)
+
+        then it will take the data from ther real database
+
+
+    keep in mind that whenever u want to drag some data from quereys and the querys take
+    it from ur database sql, remember that its good to store them in a variable
+
+    like this...
+
+      active_products = Product.objects.filter(active=True)
+
+      lets say u run like this instead...
+
+        Product.objects.filter(active=True)
+
+      if u do this one more time Django wont drag anything back anymore.
+
+       thats one of the powers of Django, thats why we set them to variables
+
+
+
+
+
+
+
+       
+
+
+

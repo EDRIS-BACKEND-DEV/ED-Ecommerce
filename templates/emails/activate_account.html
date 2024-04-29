@@ -1,0 +1,79 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Verification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: orange;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    p {
+      color: black;
+      text-align: center;
+    }
+    .button {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 10px 20px;
+      text-align: center;
+      color: #fff;
+      background-color: orange;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    a{
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 10px 20px;
+      text-align: center;
+      color: #fff;
+      background-color: orange;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Email Verification</h1>
+    <p>Well hello there! looks like you are trying to register, click on the button below to verify your email!</p>
+    <a href="http://localhost:8000{% url 'activate_account' email_active_code=user.email_active_code %}">Verify Email Address</a>
+    <p>If you didn't sign up for an account with us, please disregard this email.</p>
+    <p>Thank you for using ED Shop. We're excited to have you onboard!</p>
+  </div>
+
+  <div class="container">
+    <h1>فعالسازی حساب کاربری</h1>
+    <p>سلام! به نظر می رسد شما در حال تلاش برای ثبت نام هستید، روی دکمه زیر کلیک کنید تا ایمیل خود را تأیید کنید</p>
+    <a href="http://localhost:8000{% url 'activate_account' email_active_code=user.email_active_code %}">تأیید آدرس ایمیل</a>
+    <p>اگر برای یک حساب کاربری با ما ثبت نام نکردید، لطفاً این ایمیل را نادیده بگیرید.    </p>
+    <p>از اینکه از فروشگاه ما استفاده کردید متشکریم. ما خوشحالیم که شما را داریم<p>
+  </div>
+</body>
+</html>

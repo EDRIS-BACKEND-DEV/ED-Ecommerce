@@ -1,0 +1,50 @@
+
+{% extends 'Shared/Main_Layout.html' %}
+
+
+{% block content %}
+    <div id="contact-page" class="container">
+        <div class="bg">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="contact-form">
+                        <h2 class="title text-center">با ما در ارتباط باشیـد</h2>
+                        <div class="status alert alert-success" style="display: none"></div>
+                        <form id="main-contact-form" class="contact-form row" action="{% url 'contact_us_page' %}"
+                              method="post">
+                            {% csrf_token %}
+
+                           {% for field in form %}
+
+                            {{field.label_tag}}
+                            {{field}}
+                            {{field.errors}}
+                            
+                           {% endfor %}
+
+   
+      
+
+                            <button type="submit" class="btn btn-primary pull-right">ارسال</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="contact-info">
+                        <h2 class="title text-center">اطلاعات تماس</h2>
+                        <address>
+                            <h3 style="color: rgb(207, 70, 70);">{{settings.site_name}}</h3>
+                            <br>
+                            <p>{{settings.adress}}</p>
+                            
+                            <p>تلفن تماس سوئد: {{settings.phone_sweden}}</p>
+                            <p>تلفن تماس ایران: {{settings.phone_iran}}</p>
+                             
+                            <p style="font-family: tahoma;">ایمیـل : edrisahmady33@gmail.com</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

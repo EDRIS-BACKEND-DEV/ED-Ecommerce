@@ -1,6 +1,5 @@
 
 
-
 {
     "builds": [{
         "src": "Store/wsgi.py",
@@ -14,5 +13,4 @@
         }
     ]
 }
-
 
